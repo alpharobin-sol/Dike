@@ -28,6 +28,7 @@ Shared pages (private until shared from each page's Share menu):
 | `tokens/` | `tokens.css` (CSS variables and type styles) and `tokens.json` (the same values for design tools) |
 | `templates/` | Business card and letterhead (HTML to edit, PDF to print), email signature |
 | `web/` | Website hero: `index.html` and `hero.css`, built on the tokens |
+| `social/` | Profile pictures and banners for X, LinkedIn, Facebook and YouTube, plus a link preview image |
 | `tools/` | Scripts that rebuild every file above |
 
 ## Logo
@@ -83,6 +84,22 @@ All three are free on Google Fonts under the SIL Open Font License.
 - Strong, never loud. No war talk, no hype.
 - Say "recycled" plainly, with the percentage.
 - Plain words. Engineers and procurement teams read everything we write.
+
+## Social media
+
+| File | Size | Where it goes |
+|---|---|---|
+| `dike-avatar-dark.png` | 1080 × 1080 | Profile picture on X, LinkedIn, Instagram, Facebook, YouTube. The default |
+| `dike-avatar-bronze.png` | 1080 × 1080 | Alternate profile picture for campaigns and launches |
+| `dike-avatar-light.png` | 1080 × 1080 | Profile picture where the platform background is light |
+| `dike-x-header.png` | 1500 × 500 | X header |
+| `dike-linkedin-company-cover.png` | 2256 × 382 | LinkedIn company page cover (1128 × 191 at 2x) |
+| `dike-linkedin-founder-banner.png` | 1584 × 396 | Emmanuel Udeze's LinkedIn profile banner |
+| `dike-facebook-cover.png` | 1640 × 624 | Facebook page cover |
+| `dike-youtube-banner.png` | 2560 × 1440 | YouTube channel banner. Text sits in the 1546 × 423 safe area |
+| `dike-link-preview.png` | 1200 × 630 | Link preview for the website (`og:image`) |
+
+Use one profile picture everywhere so people recognize the account. Rebuild with `node brand/tools/render_social.js`.
 
 ## Templates
 
