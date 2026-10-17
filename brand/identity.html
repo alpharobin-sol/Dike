@@ -48,8 +48,27 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
 .on-bronze{color:var(--chalk)} .on-bronze svg,.on-bronze .lk-sub{color:var(--chalk)}
 .one-ink{color:var(--ink)} .one-ink svg,.one-ink .lk-sub{color:var(--ink)}
 .on-theme{color:var(--fg)} .on-theme svg,.on-theme .lk-sub{color:var(--accent)}
-.lk-x .lk-name{font-family:var(--f-text);font-stretch:125%;font-weight:800;font-size:calc(var(--s)*.98);line-height:.84;letter-spacing:.01em}
-.lk-x .lk-sub{font-family:var(--f-text);font-stretch:112%;font-weight:600;font-size:calc(var(--s)*.12);letter-spacing:.42em}
+.hero-stage{flex-direction:column;align-items:center;gap:28px}
+.say{font-family:var(--f-mono);font-size:14px;letter-spacing:.04em;color:var(--ti);margin:0}
+.pair.three{grid-template-columns:repeat(3,1fr)}
+.pair.three svg{width:50%}
+.t-bronze{background:var(--bronze);color:var(--chalk)}
+.name-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:40px;align-items:start}
+.pron{min-width:0}
+.pr-big{font-family:var(--f-mono);font-size:clamp(40px,6vw,64px);line-height:1;margin:10px 0 12px}
+.pr-mean{margin:0 0 28px;color:var(--muted)}
+.pron ul{margin:8px 0 28px;padding-left:1.15em;display:grid;gap:4px}
+.sig{border-left:3px solid var(--accent);padding:4px 0 4px 16px;font-size:14px;line-height:1.55}
+.sig b{display:block;font-family:var(--f-display);font-weight:700;font-size:21px;text-transform:uppercase;letter-spacing:.03em}
+.sig .pr{font-family:var(--f-mono);color:var(--accent)}
+.sig .t{color:var(--muted)}
+.rule{margin-top:32px;padding:18px 20px;background:var(--panel);display:grid;gap:6px}
+.rule p:not(.label){margin:0;max-width:70ch}
+.done{list-style:none;margin:0;padding:0;display:grid}
+.done li{display:grid;grid-template-columns:110px minmax(0,1fr);gap:4px 16px;padding-block:13px;border-top:1px solid var(--line)}
+.done strong{font-family:var(--f-mono);font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding-top:3px}
+.done .open{color:var(--accent)}
+.cb-pr{font-family:var(--f-mono);font-size:10px;color:var(--bronze);margin-top:4px}
 .fig .wm{font-family:var(--f-display);font-weight:800;font-size:clamp(76px,11.5vw,116px);line-height:.8;color:var(--fg)}
 .wm-tile{background:var(--ink);min-height:240px;display:grid;place-items:center;padding:32px 16px}
 .wm-tile .lk{--s:clamp(44px,5.4vw,64px)}
@@ -236,34 +255,28 @@ code{font-family:var(--f-mono);font-size:.95em}
       <rect width="64" height="64" fill="#fff"/>
       <path d="M17.5 17.5H46.5V32A14.5 14.5 0 0 1 17.5 32Z M25 25H39V32A7 7 0 0 1 25 32Z" fill="none" stroke="#000" stroke-width="3.2"/>
     </mask>
-    <mask id="mk-a-cut-s" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64">
-      <rect width="64" height="64" fill="#fff"/>
-      <path d="M20 20H44V32A12 12 0 0 1 20 32Z" fill="none" stroke="#000" stroke-width="5"/>
-    </mask>
     <symbol id="mk-a" viewBox="0 0 64 64">
       <path d="M10 10H54V32A22 22 0 0 1 10 32Z" fill="currentColor" mask="url(#mk-a-cut)"/>
-    </symbol>
-    <symbol id="mk-a-small" viewBox="0 0 64 64">
-      <path d="M10 10H54V32A22 22 0 0 1 10 32Z" fill="currentColor" mask="url(#mk-a-cut-s)"/>
     </symbol>
   </defs>
 </svg>
 
 <header class="hero">
   <div class="wrap">
-    <div class="meta"><span>Dike Industries</span><span>Identity, round 3</span><span>17 October 2026</span></div>
+    <div class="meta"><span>Dike Industries</span><span>Identity, round 4</span><span>17 October 2026</span></div>
     <div class="hero-stage">
       <div class="lk on-ink" role="img" aria-label="Dike Industries logo">
         <svg viewBox="0 0 64 64"><use href="#mk-a"/></svg>
         <div class="lk-word"><span class="lk-name">DIKE</span><span class="lk-sub">INDUSTRIES</span></div>
       </div>
+      <p class="say">/dee-keh/ · Igbo for brave, strong</p>
     </div>
     <div class="hero-tag">
       <div>
-        <p class="label">Proposed tagline</p>
-        <p class="line">Turning Waste into Industrial Strength</p>
+        <p class="label">Tagline</p>
+        <p class="line">Africa's Industrial Strength. Built for the World.</p>
       </div>
-      <p class="mission">We manufacture tested hardware for industry and defence from recycled materials.</p>
+      <p class="mission">We turn recycled materials into tested hardware for industry and defence, starting in Africa.</p>
     </div>
   </div>
 </header>
@@ -317,55 +330,51 @@ code{font-family:var(--f-mono);font-size:.95em}
       <div><p class="label">Mark</p><h2 class="sec-title">The shield</h2></div>
       <p class="sec-lede">The D turns on its side and becomes a shield. The inner lines echo the cast ridges on Igbo-Ukwu bronze and the layers of material inside every part.</p>
     </div>
-    <div class="opts">
-      <div class="opt">
-        <div class="opt-head"><h3>Full mark</h3></div>
-        <div class="pair">
-          <div class="t-ink"><svg viewBox="0 0 64 64" aria-label="Shield mark on ink"><use href="#mk-a"/></svg></div>
-          <div class="t-chalk"><svg viewBox="0 0 64 64" aria-label="Shield mark on chalk"><use href="#mk-a"/></svg></div>
-        </div>
-        <div class="sizes">
-          <svg width="64" height="64" viewBox="0 0 64 64" aria-hidden="true"><use href="#mk-a"/></svg>
-          <svg width="48" height="48" viewBox="0 0 64 64" aria-hidden="true"><use href="#mk-a"/></svg>
-          <svg width="32" height="32" viewBox="0 0 64 64" aria-hidden="true"><use href="#mk-a"/></svg>
-          <span>32 px and up</span>
-        </div>
-        <p class="why">Use it at 32 px and larger: the logo, signage, documents, product plates and the website.</p>
-      </div>
-      <div class="opt">
-        <div class="opt-head"><h3>Small mark</h3></div>
-        <div class="pair">
-          <div class="t-ink"><svg viewBox="0 0 64 64" aria-label="Small shield mark on ink"><use href="#mk-a-small"/></svg></div>
-          <div class="t-chalk"><svg viewBox="0 0 64 64" aria-label="Small shield mark on chalk"><use href="#mk-a-small"/></svg></div>
-        </div>
-        <div class="sizes">
-          <svg width="24" height="24" viewBox="0 0 64 64" aria-hidden="true"><use href="#mk-a-small"/></svg>
-          <svg width="20" height="20" viewBox="0 0 64 64" aria-hidden="true"><use href="#mk-a-small"/></svg>
-          <svg width="16" height="16" viewBox="0 0 64 64" aria-hidden="true"><use href="#mk-a-small"/></svg>
-          <span>Below 32 px</span>
-        </div>
-        <p class="why">Below 32 px the two ridges blur into one smudge. This version keeps a single thicker ridge, so favicons, browser tabs and small icons stay sharp.</p>
-      </div>
+    <div class="pair three">
+      <div class="t-ink"><svg viewBox="0 0 64 64" aria-label="Shield mark on ink"><use href="#mk-a"/></svg></div>
+      <div class="t-chalk"><svg viewBox="0 0 64 64" aria-label="Shield mark on chalk"><use href="#mk-a"/></svg></div>
+      <div class="t-bronze"><svg viewBox="0 0 64 64" aria-label="Shield mark on bronze"><use href="#mk-a"/></svg></div>
     </div>
+    <div class="sizes">
+      <svg width="64" height="64" viewBox="0 0 64 64" aria-hidden="true"><use href="#mk-a"/></svg>
+      <svg width="48" height="48" viewBox="0 0 64 64" aria-hidden="true"><use href="#mk-a"/></svg>
+      <svg width="32" height="32" viewBox="0 0 64 64" aria-hidden="true"><use href="#mk-a"/></svg>
+      <svg width="24" height="24" viewBox="0 0 64 64" aria-hidden="true"><use href="#mk-a"/></svg>
+      <svg width="16" height="16" viewBox="0 0 64 64" aria-hidden="true"><use href="#mk-a"/></svg>
+      <span>64 · 48 · 32 · 24 · 16 px</span>
+    </div>
+    <p class="why">One mark at every size. At 16 px the shield outline and bronze color do the work. Most phones and laptops draw a 16 px icon with 32 real pixels, and there the ridges stay clear.</p>
   </div>
 </section>
 
 <section class="sec" id="wordmark">
   <div class="wrap">
     <div class="sec-head">
-      <div><p class="label">Wordmark</p><h2 class="sec-title">Two ways to set the name</h2></div>
-      <p class="sec-lede">The shield works with either. Condensed brings C's weight. Expanded is A's original lockup.</p>
+      <div><p class="label">Name</p><h2 class="sec-title">Wordmark and sound</h2></div>
+      <p class="sec-lede">The condensed wordmark from C. One pronunciation, taught everywhere the name appears.</p>
     </div>
-    <div class="opts">
+    <div class="name-grid">
       <div class="opt">
-        <div class="opt-head"><h3>1 · Condensed</h3><span class="rec">My pick</span></div>
+        <div class="opt-head"><h3>Condensed</h3><span class="rec">Chosen</span></div>
         <div class="wm-tile"><div class="lk on-ink" role="img" aria-label="Shield with condensed wordmark"><svg viewBox="0 0 64 64"><use href="#mk-a"/></svg><div class="lk-word"><span class="lk-name">DIKE</span><span class="lk-sub">INDUSTRIES</span></div></div></div>
-        <p class="why">C's wordmark. Tall and tight, so it reads from a distance and matches the headline type. Strong on signage, equipment and defence work.</p>
+        <p class="why">Tall and tight, so it reads from a distance and matches the headline type. Strong on signage, equipment and defence work.</p>
       </div>
-      <div class="opt">
-        <div class="opt-head"><h3>2 · Expanded</h3></div>
-        <div class="wm-tile"><div class="lk lk-x on-ink" role="img" aria-label="Shield with expanded wordmark"><svg viewBox="0 0 64 64"><use href="#mk-a"/></svg><div class="lk-word"><span class="lk-name">DIKE</span><span class="lk-sub">INDUSTRIES</span></div></div></div>
-        <p class="why">A's original. Wide and steady, closer to a heritage brand. Pick this and headlines switch to Archivo Expanded to match.</p>
+      <div class="pron">
+        <p class="label">Say it</p>
+        <p class="pr-big">/dee-keh/</p>
+        <p class="pr-mean">Igbo for brave, strong. Two syllables: dee, then keh.</p>
+        <p class="label">Where it appears</p>
+        <ul>
+          <li>Website footer, beside the logo</li>
+          <li>Pitch deck cover</li>
+          <li>Email signature</li>
+          <li>The first line of every intro, spoken out loud</li>
+        </ul>
+        <div class="sig" aria-label="Example email signature">
+          <b>Duke</b>
+          Founder · Dike Industries <span class="pr">/dee-keh/</span><br>
+          <span class="t">Africa's industrial strength. Built for the world.</span>
+        </div>
       </div>
     </div>
   </div>
@@ -399,8 +408,8 @@ code{font-family:var(--f-mono);font-size:.95em}
           <div class="icons">
             <span class="icon i120"><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#mk-a"/></svg></span>
             <span class="icon i60"><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#mk-a"/></svg></span>
-            <span class="icon i32"><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#mk-a-small"/></svg></span>
-            <span class="icon i16"><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#mk-a-small"/></svg></span>
+            <span class="icon i32"><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#mk-a"/></svg></span>
+            <span class="icon i16"><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#mk-a"/></svg></span>
           </div>
         </div>
         <span class="tlabel">App icon and favicon</span>
@@ -416,37 +425,42 @@ code{font-family:var(--f-mono);font-size:.95em}
 <section class="sec" id="tagline">
   <div class="wrap">
     <div class="sec-head">
-      <div><p class="label">Tagline</p><h2 class="sec-title">Say what you do</h2></div>
-      <p class="sec-lede">"Strength, recovered" asks people to decode it. Terra Industries does the opposite. Each of its lines says what the company does and who it serves.</p>
+      <div><p class="label">Tagline</p><h2 class="sec-title">Africa first, then the world</h2></div>
+      <p class="sec-lede">Terra Industries started with Africa and widened its frame as it grew. Dike's line does both in one go: it opens with Africa and points at the world.</p>
     </div>
     <div class="terra">
       <div>
         <p class="label">The Terra pattern</p>
-        <p class="pattern">Action word, then what you do, then who or where it serves. No wordplay. A stranger gets it in one read.</p>
-        <p class="src">Source: terraindustries.co, October 2026</p>
+        <p class="pattern">Start with your home region. Widen the frame as you grow. Keep every line plain enough to get in one read.</p>
+        <p class="src">Sources: terraindustries.co and company directory listings, October 2026</p>
       </div>
       <dl>
-        <div><dt>Headline</dt><dd>Defending the Global South</dd></div>
-        <div><dt>Mission line</dt><dd>Building autonomous systems to protect critical infrastructure and resources across the Global South.</dd></div>
+        <div><dt>Early slogan</dt><dd>Protecting Africa's critical infrastructure</dd></div>
+        <div><dt>Headline today</dt><dd>Defending the Global South</dd></div>
       </dl>
     </div>
 
     <div class="set" aria-label="Proposed Dike tagline set">
-      <div class="tier"><span class="tl">Headline</span><p class="hl">Turning Waste into Industrial Strength</p></div>
-      <div class="tier"><span class="tl">Mission line</span><p class="ml">We manufacture tested hardware for industry and defence from recycled materials.</p></div>
+      <div class="tier"><span class="tl">Headline</span><p class="hl">Africa's Industrial Strength. Built for the World.</p></div>
+      <div class="tier"><span class="tl">Mission line</span><p class="ml">We turn recycled materials into tested hardware for industry and defence, starting in Africa.</p></div>
       <div class="tier"><span class="tl">Sign-off</span><p class="so">From waste to strength</p></div>
     </div>
 
     <div class="reasons">
-      <div><p class="label">Source</p><p>It comes from your vision line, "Turning Recycled Materials into Industrial Capability." Same idea, fewer and plainer words.</p></div>
-      <div><p class="label">Double meaning</p><p>"Industrial strength" means very tough. It also means the strength of a country's industry. Both fit Dike.</p></div>
-      <div><p class="label">The name</p><p>Dike means strong. Igbo speakers hear the name inside the line. Everyone else still gets a clear sentence.</p></div>
+      <div><p class="label">Africa first</p><p>The line opens with Africa, your home market and where your first customers will come from.</p></div>
+      <div><p class="label">Then the world</p><p>"Built for the world" sets the global aim without claiming global sales today.</p></div>
+      <div><p class="label">The name</p><p>Dike means strong. "Industrial strength" carries the name for Igbo speakers and the meaning for everyone else.</p></div>
+    </div>
+
+    <div class="rule">
+      <p class="label">One wording rule</p>
+      <p>Keep Africa next to strength, never next to waste. A line like "Turning Africa's waste into…" can read as if Africa is a dumping ground.</p>
     </div>
 
     <ul class="alts">
-      <li><span class="a">Building Africa's Industrial Strength</span><p>Closest to Terra's regional framing. Pick this if Africa is your first market.</p></li>
-      <li><span class="a">Turning Waste into Hardware</span><p>Shortest and most literal. "Hardware" can read as computer parts to some people.</p></li>
-      <li><span class="a">Turning Recycled Materials into Industrial Capability</span><p>Your vision doc line. Accurate, but long, and "capability" is hard to picture.</p></li>
+      <li><span class="a">Building Africa's Industrial Strength</span><p>The staged route. Use it now, then switch to "Turning Waste into Industrial Strength" when you go global, the way Terra moved from Africa to the Global South.</p></li>
+      <li><span class="a">Turning Waste into Industrial Strength</span><p>Round 2 pick. Global from day one, with no Africa signal. Keep it for the global stage.</p></li>
+      <li><span class="a">Made in Africa. Built for the World.</span><p>Clear, but many African brands already use this phrasing, so it won't stand out.</p></li>
     </ul>
   </div>
 </section>
@@ -466,8 +480,8 @@ code{font-family:var(--f-mono);font-size:.95em}
       <li><span class="chip" style="background:var(--steel)"></span><span class="sw-name">Steel</span><span class="sw-hex">#24272C</span><span class="sw-role">Panels and plates on ink</span></li>
     </ul>
     <div class="contrast">
-      <div style="background:var(--ink);color:var(--chalk)"><svg viewBox="0 0 64 64" style="color:var(--bronze-hi)" aria-hidden="true"><use href="#mk-a-small"/></svg>Polished on ink · 6.4:1</div>
-      <div style="background:var(--paper);color:var(--ink);box-shadow:inset 0 0 0 1px var(--line)"><svg viewBox="0 0 64 64" style="color:var(--bronze)" aria-hidden="true"><use href="#mk-a-small"/></svg>Cast on chalk · 5.1:1</div>
+      <div style="background:var(--ink);color:var(--chalk)"><svg viewBox="0 0 64 64" style="color:var(--bronze-hi)" aria-hidden="true"><use href="#mk-a"/></svg>Polished on ink · 6.4:1</div>
+      <div style="background:var(--paper);color:var(--ink);box-shadow:inset 0 0 0 1px var(--line)"><svg viewBox="0 0 64 64" style="color:var(--bronze)" aria-hidden="true"><use href="#mk-a"/></svg>Cast on chalk · 5.1:1</div>
     </div>
   </div>
 </section>
@@ -483,7 +497,7 @@ code{font-family:var(--f-mono);font-size:.95em}
         <p class="label">From C</p>
         <h3>Barlow Condensed ExtraBold</h3>
         <p class="use">Logo, headlines, signage, product markings</p>
-        <p class="sp-display">Turning waste into industrial strength</p>
+        <p class="sp-display">Africa's industrial strength. Built for the world.</p>
       </div>
       <div>
         <p class="label">From A</p>
@@ -517,8 +531,8 @@ code{font-family:var(--f-mono);font-size:.95em}
       </div>
       <div class="site-body">
         <p class="site-eye">Industrial &amp; defence manufacturing</p>
-        <h3 class="site-h">Turning waste into industrial strength</h3>
-        <p class="site-p">We manufacture tested hardware for industry and defence from recycled materials.</p>
+        <h3 class="site-h">Africa's industrial strength. Built for the world.</h3>
+        <p class="site-p">We turn recycled materials into tested hardware for industry and defence, starting in Africa.</p>
         <div class="site-btns"><a class="btn pri" href="#use">Talk to us</a><a class="btn sec" href="#use">See how we test</a></div>
       </div>
       <dl class="site-strip">
@@ -534,8 +548,8 @@ code{font-family:var(--f-mono);font-size:.95em}
         <div class="cards">
           <div class="card front"><div class="lk on-ink" role="img" aria-label="Card front logo"><svg viewBox="0 0 64 64"><use href="#mk-a"/></svg><div class="lk-word"><span class="lk-name">DIKE</span><span class="lk-sub">INDUSTRIES</span></div></div></div>
           <div class="card back">
-            <div><div class="cb-name">Duke</div><div class="cb-role">Founder</div></div>
-            <div class="cb-foot"><span class="cb-tag">Turning waste into<br>industrial strength</span><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#mk-a-small"/></svg></div>
+            <div><div class="cb-name">Duke</div><div class="cb-role">Founder</div><div class="cb-pr">DIKE /dee-keh/</div></div>
+            <div class="cb-foot"><span class="cb-tag">Africa's industrial strength.<br>Built for the world.</span><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#mk-a"/></svg></div>
           </div>
         </div>
         <p class="ucap">Business card · 85 × 55 mm, front and back</p>
@@ -543,7 +557,7 @@ code{font-family:var(--f-mono);font-size:.95em}
       <div>
         <div class="plate">
           <span class="screw tl"></span><span class="screw tr"></span><span class="screw bl"></span><span class="screw br"></span>
-          <div class="plate-head"><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#mk-a-small"/></svg>DIKE INDUSTRIES<span class="plate-tag">EXAMPLE</span></div>
+          <div class="plate-head"><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#mk-a"/></svg>DIKE INDUSTRIES<span class="plate-tag">EXAMPLE</span></div>
           <div class="plate-body">
             <dl class="plate-rows">
               <div><dt>MODEL</dt><dd>DK-C04</dd></div>
@@ -566,13 +580,14 @@ code{font-family:var(--f-mono);font-size:.95em}
   <div class="wrap">
     <div class="next-grid">
       <div>
-        <p class="label">Your move</p>
-        <h3>Three calls left</h3>
-        <ol class="decide">
-          <li><strong>Wordmark</strong><span>Condensed (from C) or expanded (A's original)?</span></li>
-          <li><strong>Tagline</strong><span>Keep the headline above, or pick an alternative? Africa-first or global?</span></li>
-          <li><strong>Name in English</strong><span>Teach the sound, always use "Dike Industries", or add an accent?</span></li>
-        </ol>
+        <p class="label">Where we are</p>
+        <h3>Locked in</h3>
+        <ul class="done">
+          <li><strong>Mark</strong><span>A's shield, one version at every size</span></li>
+          <li><strong>Wordmark</strong><span>Condensed, from C</span></li>
+          <li><strong>Say it</strong><span>/dee-keh/</span></li>
+          <li><strong>Tagline</strong><span class="open">Africa's Industrial Strength. Built for the World. Waiting on your OK.</span></li>
+        </ul>
       </div>
       <div>
         <p class="label">Then I build</p>
@@ -592,5 +607,5 @@ code{font-family:var(--f-mono);font-size:.95em}
 </main>
 
 <footer class="foot">
-  <div class="wrap"><span>Mark source files: <code>brand/marks/</code> in the Dike repo</span><span>Round 3 · 17 Oct 2026</span></div>
+  <div class="wrap"><span>Mark source files: <code>brand/marks/</code> in the Dike repo</span><span>Round 4 · 17 Oct 2026</span></div>
 </footer>
