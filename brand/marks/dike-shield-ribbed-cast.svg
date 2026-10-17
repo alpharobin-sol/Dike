@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <title>Dike shield mark, ribbed, cast</title>
+  <defs><clipPath id="s"><path d="M10 10H54V32A22 22 0 0 1 10 32Z"/></clipPath></defs>
+  <g clip-path="url(#s)" fill="#8E5329"><rect x="10" width="8" height="64"/><rect x="22" width="8" height="64"/><rect x="34" width="8" height="64"/><rect x="46" width="8" height="64"/></g>
+</svg>
