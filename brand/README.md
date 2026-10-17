@@ -12,6 +12,12 @@
 
 The brand book lives in `identity.html`. Round 1 explorations are in `directions.html` and `explorations/`.
 
+Shared pages (private until shared from each page's Share menu):
+
+- Design system: https://claude.ai/artifact/Rv6LX1T5Phoq71PkvKNeDy
+- Pitch deck: https://claude.ai/artifact/5tEtbkXL9MvBNrqmTuifuP
+- Brand book: https://claude.ai/artifact/WeoKZ8x4To88eTgq7ktn3i
+
 ## What's in the kit
 
 | Folder | Contents |
