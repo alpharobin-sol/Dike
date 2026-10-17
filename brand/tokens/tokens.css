@@ -1,0 +1,87 @@
+/* Dike Industries design tokens.
+   Load the fonts first:
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+   Dark is the default theme. Add data-theme="light" to any element to switch it and its children. */
+
+:root {
+  /* Palette */
+  --dike-void: #070809;
+  --dike-carbon: #121418;
+  --dike-graphite: #24272c;
+  --dike-titanium: #8d939a;
+  --dike-nzu-white: #f4f3ef;
+  --dike-forged-bronze: #d4914f;
+  --dike-cast-bronze: #8e5329;
+  --dike-molten: linear-gradient(100deg, #8e5329 0%, #d4914f 55%, #f2c38e 100%);
+
+  /* Roles, dark theme */
+  --color-bg: var(--dike-void);
+  --color-surface: var(--dike-carbon);
+  --color-line: var(--dike-graphite);
+  --color-text: var(--dike-nzu-white);
+  --color-text-muted: var(--dike-titanium);
+  --color-accent: var(--dike-forged-bronze);
+  --color-on-accent: var(--dike-void);
+
+  /* Type families */
+  --font-display: "Barlow Condensed", "Arial Narrow", sans-serif;
+  --font-text: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+
+  /* Type scale: size / line height */
+  --size-display-1: clamp(3.5rem, 7vw, 6rem);    --leading-display-1: 0.88;
+  --size-display-2: clamp(2.5rem, 5vw, 4rem);    --leading-display-2: 0.9;
+  --size-heading: clamp(1.5rem, 2.4vw, 2rem);    --leading-heading: 1;
+  --size-body-lg: 1.1875rem;                     --leading-body-lg: 1.5;
+  --size-body: 1rem;                             --leading-body: 1.55;
+  --size-small: 0.875rem;                        --leading-small: 1.45;
+  --size-label: 0.75rem;                         --tracking-label: 0.08em;
+  --size-data: 0.8125rem;
+
+  /* Spacing, 4 px base */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+
+  /* Shape */
+  --radius: 0;            /* the brand uses square corners */
+  --radius-app-icon: 22%; /* app icons only */
+  --line: 1px;
+}
+
+[data-theme="light"] {
+  --color-bg: var(--dike-nzu-white);
+  --color-surface: #eae9e4;
+  --color-line: #d6d5d0;
+  --color-text: var(--dike-void);
+  --color-text-muted: #4a4e55;
+  --color-accent: var(--dike-cast-bronze);
+  --color-on-accent: var(--dike-nzu-white);
+}
+
+/* Type styles */
+.t-display-1, .t-display-2, .t-heading {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.005em;
+  text-wrap: balance;
+}
+.t-display-1 { font-weight: 800; font-size: var(--size-display-1); line-height: var(--leading-display-1); }
+.t-display-2 { font-weight: 800; font-size: var(--size-display-2); line-height: var(--leading-display-2); }
+.t-heading   { font-weight: 700; font-size: var(--size-heading);   line-height: var(--leading-heading); letter-spacing: 0.02em; }
+.t-body-lg   { font-family: var(--font-text); font-size: var(--size-body-lg); line-height: var(--leading-body-lg); }
+.t-body      { font-family: var(--font-text); font-size: var(--size-body);    line-height: var(--leading-body); }
+.t-small     { font-family: var(--font-text); font-size: var(--size-small);   line-height: var(--leading-small); }
+.t-label {
+  font-family: var(--font-mono);
+  font-size: var(--size-label);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+}
+.t-data { font-family: var(--font-mono); font-size: var(--size-data); font-variant-numeric: tabular-nums; }

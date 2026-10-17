@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Dike Industries letterhead</title>
+<!-- A4 letterhead. Edit the bracketed fields and the letter body, then print to PDF or run tools/render.js. -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Archivo:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../tokens/tokens.css">
+<style>
+  @page { size: A4; margin: 0; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body { background: #777; padding: 10mm 0; }
+  .page { width: 210mm; height: 297mm; margin: 0 auto; background: #fff; color: var(--dike-void); position: relative; padding: 18mm 22mm 0; display: flex; flex-direction: column; }
+  .page::before { content: ""; position: absolute; inset: 0 0 auto; height: 2mm; background: var(--dike-cast-bronze); }
+  header { display: flex; justify-content: space-between; align-items: flex-start; gap: 10mm; }
+  header img { height: 13mm; display: block; }
+  .addr { font-family: var(--font-mono); font-size: 7.5pt; line-height: 1.6; text-align: right; color: #4a4e55; margin: 0; }
+  main { font-family: var(--font-text); font-size: 10.5pt; line-height: 1.55; margin-top: 24mm; max-width: 150mm; flex: 1; }
+  main p { margin: 0 0 4.2mm; }
+  .date { font-family: var(--font-mono); font-size: 8.5pt; color: #4a4e55; margin-bottom: 8mm; }
+  .to { margin-bottom: 9mm; }
+  .sign { margin-top: 10mm; }
+  .sign strong { display: block; font-family: var(--font-display); font-weight: 700; font-size: 13pt; letter-spacing: 0.03em; text-transform: uppercase; }
+  footer { border-top: 1px solid #d6d5d0; margin: 0 -22mm; padding: 6mm 22mm 12mm; display: flex; justify-content: space-between; align-items: center; gap: 8mm; }
+  .tag { font-family: var(--font-display); font-weight: 600; font-size: 9pt; letter-spacing: 0.1em; text-transform: uppercase; margin: 0; }
+  .foot-r { display: flex; align-items: center; gap: 4mm; font-family: var(--font-mono); font-size: 7.5pt; color: #4a4e55; }
+  .foot-r b { color: var(--dike-cast-bronze); font-weight: 500; }
+  .foot-r img { height: 6mm; display: block; }
+  @media print { body { background: none; padding: 0; } .page { margin: 0; } }
+</style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <img src="../logo/svg/dike-horizontal-on-light.svg" alt="Dike Industries">
+      <p class="addr">Dike Industries<br>[Street address]<br>[City, Country]<br>[website]</p>
+    </header>
+    <main>
+      <p class="date">[Date]</p>
+      <p class="to">[Recipient name]<br>[Company]<br>[Address]</p>
+      <p>Dear [Name],</p>
+      <p>Thank you for your time. I'm writing to introduce Dike Industries.</p>
+      <p>We turn waste into tested materials, parts and equipment for industry and defence. We start with one product, built to a customer's specification and proven through testing before it ships.</p>
+      <p>I'd welcome the chance to learn what your team needs and whether we can help.</p>
+      <p class="sign">Yours sincerely,<br><br><strong>Emmanuel Udeze</strong>Founder, Dike Industries</p>
+    </main>
+    <footer>
+      <p class="tag">Engineered from waste. Built for the future.</p>
+      <div class="foot-r"><span><b>/dee-keh/</b> · [email] · [phone]</span><img src="../logo/svg/dike-mark-on-light.svg" alt=""></div>
+    </footer>
+  </div>
+</body>
+</html>

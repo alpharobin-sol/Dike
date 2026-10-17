@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dike Industries</title>
+<meta name="description" content="We turn waste into tested materials, parts and equipment for industry and defence.">
+<meta name="theme-color" content="#070809">
+<link rel="icon" href="../icons/favicon.ico" sizes="32x32">
+<link rel="icon" href="../icons/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<link rel="manifest" href="../icons/site.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../tokens/tokens.css">
+<link rel="stylesheet" href="hero.css">
+</head>
+<body>
+<header class="nav">
+  <a class="nav-logo" href="/" aria-label="Dike Industries home"><img src="../logo/svg/dike-horizontal-on-dark.svg" alt="Dike Industries" width="140" height="50"></a>
+  <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu">Menu</button>
+  <nav id="nav-menu" class="nav-menu" aria-label="Main">
+    <a href="#products">Products</a>
+    <a href="#materials">Materials</a>
+    <a href="#testing">Testing</a>
+    <a href="#company">Company</a>
+    <a class="nav-cta" href="#contact">Talk to us</a>
+  </nav>
+</header>
+
+<main>
+  <section class="hero">
+    <svg class="hero-shield" viewBox="10 10 44 44" aria-hidden="true">
+      <defs>
+        <linearGradient id="molten" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#8E5329"/><stop offset=".55" stop-color="#D4914F"/><stop offset="1" stop-color="#F2C38E"/>
+        </linearGradient>
+      </defs>
+      <path fill="url(#molten)" fill-rule="evenodd" d="M10.00 10.00H54.00V32.00A22.00 22.00 0 0 1 10.00 32.00Z M15.90 15.90H48.10V32.00A16.10 16.10 0 0 1 15.90 32.00Z M19.10 19.10H44.90V32.00A12.90 12.90 0 0 1 19.10 32.00Z M23.40 23.40H40.60V32.00A8.60 8.60 0 0 1 23.40 32.00Z M26.60 26.60H37.40V32.00A5.40 5.40 0 0 1 26.60 32.00Z"/>
+    </svg>
+    <div class="hero-body">
+      <p class="t-label hero-eyebrow">Industrial &amp; defence manufacturing</p>
+      <h1 class="t-display-1 hero-title">Building the future from what the world throws away.</h1>
+      <p class="t-body-lg hero-lede">We turn waste into tested materials, parts and equipment for industry and defence.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#contact">Talk to us</a>
+        <a class="btn btn-secondary" href="#testing">See how we test</a>
+      </div>
+    </div>
+    <dl class="hero-strip">
+      <div><dt class="t-label">Materials</dt><dd class="t-data">rHDPE · rPP · composites</dd></div>
+      <div><dt class="t-label">Markets</dt><dd class="t-data">Industry · infrastructure · security</dd></div>
+      <div><dt class="t-label">Now</dt><dd class="t-data">Validating our first product</dd></div>
+    </dl>
+  </section>
+</main>
+
+<script>
+  // Small screens: show and hide the menu.
+  const toggle = document.querySelector('.nav-toggle');
+  const menu = document.getElementById('nav-menu');
+  toggle.addEventListener('click', () => {
+    const open = toggle.getAttribute('aria-expanded') === 'true';
+    toggle.setAttribute('aria-expanded', String(!open));
+    menu.classList.toggle('is-open', !open);
+  });
+</script>
+</body>
+</html>

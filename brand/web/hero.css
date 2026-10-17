@@ -1,0 +1,53 @@
+/* Website hero for Dike Industries. Built on ../tokens/tokens.css. */
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { background: var(--color-bg); color: var(--color-text); font-family: var(--font-text); -webkit-font-smoothing: antialiased; }
+a { color: inherit; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 3px; }
+
+.nav {
+  position: relative; z-index: 2;
+  display: flex; align-items: center; gap: var(--space-5);
+  padding: var(--space-4) max(var(--space-4), env(safe-area-inset-right)) var(--space-4) max(var(--space-4), env(safe-area-inset-left));
+  border-bottom: var(--line) solid var(--color-line);
+}
+.nav-logo img { display: block; height: 32px; width: auto; }
+.nav-menu { display: flex; align-items: center; gap: var(--space-5); margin-left: auto; font-size: var(--size-small); }
+.nav-menu a { text-decoration: none; color: var(--color-text-muted); }
+.nav-menu a:hover { color: var(--color-text); }
+.nav-menu .nav-cta { color: var(--color-accent); border: var(--line) solid var(--color-accent); padding: var(--space-2) var(--space-4); font-weight: 600; }
+.nav-toggle { display: none; margin-left: auto; background: none; border: var(--line) solid var(--color-line); color: var(--color-text); font: 500 var(--size-small) var(--font-mono); text-transform: uppercase; letter-spacing: var(--tracking-label); padding: var(--space-2) var(--space-3); cursor: pointer; }
+
+@media (max-width: 760px) {
+  .nav-toggle { display: block; }
+  .nav-menu { display: none; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; align-items: stretch; gap: 0; background: var(--color-surface); border-bottom: var(--line) solid var(--color-line); }
+  .nav-menu.is-open { display: flex; }
+  .nav-menu a { padding: var(--space-4); border-top: var(--line) solid var(--color-line); }
+  .nav-menu .nav-cta { border: 0; border-top: var(--line) solid var(--color-line); padding: var(--space-4); }
+}
+
+.hero { position: relative; overflow: hidden; }
+.hero-shield { position: absolute; right: -4vw; top: var(--space-7); width: min(560px, 52vw); height: auto; opacity: 0.32; z-index: 0; }
+.hero-body {
+  position: relative; z-index: 1; max-width: 1200px;
+  padding: clamp(var(--space-7), 9vw, 140px) max(var(--space-4), env(safe-area-inset-right)) clamp(var(--space-6), 6vw, var(--space-8)) max(var(--space-4), env(safe-area-inset-left));
+}
+@media (min-width: 760px) {
+  .nav { padding-left: var(--space-8); padding-right: var(--space-8); }
+  .hero-body { padding-left: var(--space-8); padding-right: var(--space-8); }
+  .hero-strip { padding: 0 calc(var(--space-8) - var(--space-5)); }
+}
+.hero-eyebrow { color: var(--color-accent); margin: 0; }
+.hero-title { margin: var(--space-4) 0 var(--space-5); max-width: 15ch; }
+.hero-lede { color: var(--color-text-muted); max-width: 44ch; margin: 0 0 var(--space-6); }
+.hero-actions { display: flex; flex-wrap: wrap; gap: var(--space-3); }
+.btn { display: inline-block; text-decoration: none; font-weight: 600; font-size: var(--size-body); padding: var(--space-3) var(--space-5); border-radius: var(--radius); }
+.btn-primary { background: var(--color-accent); color: var(--color-on-accent); }
+.btn-secondary { box-shadow: inset 0 0 0 var(--line) var(--color-text); color: var(--color-text); }
+
+.hero-strip { position: relative; z-index: 1; margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); border-top: var(--line) solid var(--color-line); }
+.hero-strip div { padding: var(--space-4) var(--space-5); border-right: var(--line) solid var(--color-line); }
+.hero-strip dt { color: var(--color-text-muted); }
+.hero-strip dd { margin: var(--space-1) 0 0; }
+
+@media (max-width: 760px) { .hero-shield { width: 280px; right: -120px; top: auto; bottom: 150px; opacity: 0.16; } }

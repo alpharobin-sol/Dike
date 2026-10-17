@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Dike Industries business card</title>
+<!-- 85 x 55 mm card with 3 mm bleed on every side (91 x 61 mm pages). Keep text inside the dashed safe area.
+     Replace the bracketed contact fields, then print to PDF or run tools/render.js. -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Archivo:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../tokens/tokens.css">
+<style>
+  @page { size: 91mm 61mm; margin: 0; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body { background: #777; display: grid; gap: 10mm; justify-content: center; padding: 10mm; }
+  .card { width: 91mm; height: 61mm; position: relative; overflow: hidden; break-after: page; }
+  .safe { position: absolute; inset: 8mm; } /* 3 mm bleed + 5 mm margin */
+  .front { background: var(--dike-void); display: grid; place-items: center; }
+  .front img { width: 44mm; display: block; }
+  .back { background: var(--dike-nzu-white); color: var(--dike-void); }
+  .back .safe { display: flex; flex-direction: column; justify-content: space-between; }
+  .row { display: flex; justify-content: space-between; align-items: flex-start; gap: 4mm; }
+  .row.end { align-items: flex-end; }
+  .name { font-family: var(--font-display); font-weight: 700; font-size: 13pt; line-height: 1; letter-spacing: 0.03em; text-transform: uppercase; margin: 0; }
+  .role { font-family: var(--font-text); font-size: 7.5pt; color: #4a4e55; margin: 1.2mm 0 0; }
+  .say { font-family: var(--font-mono); font-size: 6.5pt; color: var(--dike-cast-bronze); margin: 1.2mm 0 0; }
+  .mark { width: 7mm; display: block; }
+  .contact { font-family: var(--font-mono); font-size: 6.5pt; line-height: 1.6; margin: 0; }
+  .tag { font-family: var(--font-display); font-weight: 600; font-size: 7pt; line-height: 1.2; letter-spacing: 0.1em; text-transform: uppercase; text-align: right; margin: 0; }
+  @media print {
+    body { background: none; padding: 0; display: block; }
+  }
+</style>
+</head>
+<body>
+  <section class="card front">
+    <img src="../logo/svg/dike-horizontal-on-dark.svg" alt="Dike Industries">
+  </section>
+  <section class="card back">
+    <div class="safe">
+      <div class="row">
+        <div>
+          <p class="name">Emmanuel Udeze</p>
+          <p class="role">Founder</p>
+          <p class="say">DIKE /dee-keh/</p>
+        </div>
+        <img class="mark" src="../logo/svg/dike-mark-on-light.svg" alt="">
+      </div>
+      <div class="row end">
+        <p class="contact">[email]<br>[phone]<br>[website]</p>
+        <p class="tag">Engineered from waste.<br>Built for the future.</p>
+      </div>
+    </div>
+  </section>
+</body>
+</html>
