@@ -92,14 +92,16 @@ All three are free on Google Fonts under the SIL Open Font License.
 | `dike-avatar-dark.png` | 1080 × 1080 | Profile picture on X, LinkedIn, Instagram, Facebook, YouTube. The default |
 | `dike-avatar-bronze.png` | 1080 × 1080 | Alternate profile picture for campaigns and launches |
 | `dike-avatar-light.png` | 1080 × 1080 | Profile picture where the platform background is light |
-| `dike-x-header.png` | 1500 × 500 | X header |
+| `dike-x-header-convergence.png` | 3000 × 1000 | X header, recommended. Grey fragments stream in and lock into the bronze shield |
+| `dike-x-header-horizon.png` | 3000 × 1000 | X header, alternate. The shield stands on a glowing horizon |
+| `dike-x-header.png` | 1500 × 500 | X header, simple type-led version |
 | `dike-linkedin-company-cover.png` | 2256 × 382 | LinkedIn company page cover (1128 × 191 at 2x) |
 | `dike-linkedin-founder-banner.png` | 1584 × 396 | Emmanuel Udeze's LinkedIn profile banner |
 | `dike-facebook-cover.png` | 1640 × 624 | Facebook page cover |
 | `dike-youtube-banner.png` | 2560 × 1440 | YouTube channel banner. Text sits in the 1546 × 423 safe area |
 | `dike-link-preview.png` | 1200 × 630 | Link preview for the website (`og:image`) |
 
-Use one profile picture everywhere so people recognize the account. Rebuild with `node brand/tools/render_social.js`.
+Use one profile picture everywhere so people recognize the account. Rebuild with `node brand/tools/render_social.js` and `node brand/tools/render_x_hero.js`.
 
 ## Templates
 
