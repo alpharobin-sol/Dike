@@ -1,10 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
-  <title>Dike shield mark, polished</title>
+  <title>Dike shield mark, void</title>
   <defs>
     <mask id="cut" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64">
       <rect width="64" height="64" fill="#fff"/>
       <path d="M17.5 17.5H46.5V32A14.5 14.5 0 0 1 17.5 32Z M25 25H39V32A7 7 0 0 1 25 32Z" fill="none" stroke="#000" stroke-width="3.2"/>
     </mask>
   </defs>
-  <path d="M10 10H54V32A22 22 0 0 1 10 32Z" fill="#C68F55" mask="url(#cut)"/>
+  <path d="M10 10H54V32A22 22 0 0 1 10 32Z" fill="#070809" mask="url(#cut)"/>
 </svg>

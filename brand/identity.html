@@ -7,11 +7,12 @@
 <style>
 :root{
   /* Layout: fixed-ink brand hero, then theme-aware chalk/ink sections holding fixed-color specimen tiles, on a 1120px wrap */
-  --bg:#ECEAE4; --fg:#15171B; --muted:#4D5157; --line:#CBC7BE; --panel:#E2DFD7; --accent:#8E5329;
+  --bg:#F4F3EF; --fg:#070809; --muted:#4A4E55; --line:#D6D5D0; --panel:#EAE9E4; --accent:#8E5329;
 
   /* Brand palette (fixed, same in both themes) */
-  --ink:#15171B; --chalk:#ECEAE4; --bronze:#8E5329; --bronze-hi:#C68F55; --patina:#5F7368; --steel:#24272C;
-  --ti:#9298A0; --paper:#F6F5F1; --steel-line:#33373D; --shadow:rgba(21,23,27,.16);
+  --ink:#070809; --chalk:#F4F3EF; --bronze:#8E5329; --bronze-hi:#D4914F; --steel:#121418;
+  --ti:#8D939A; --paper:#FAFAF8; --steel-line:#24272C; --shadow:rgba(7,8,9,.16);
+  --molten:linear-gradient(100deg,#8E5329 0%,#D4914F 55%,#F2C38E 100%);
 
   --f-display:"Barlow Condensed","Arial Narrow",sans-serif;
   --f-text:"Archivo","Helvetica Neue",Arial,sans-serif;
@@ -19,9 +20,9 @@
   --wrap:1120px;
 }
 @media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]){--bg:#15171B;--fg:#ECEAE4;--muted:#9298A0;--line:#2F3238;--panel:#1E2126;--accent:#C68F55;color-scheme:dark}
+  :root:not([data-theme="light"]){--bg:#070809;--fg:#F4F3EF;--muted:#8D939A;--line:#24272C;--panel:#121418;--accent:#D4914F;color-scheme:dark}
 }
-:root[data-theme="dark"]{--bg:#15171B;--fg:#ECEAE4;--muted:#9298A0;--line:#2F3238;--panel:#1E2126;--accent:#C68F55;color-scheme:dark}
+:root[data-theme="dark"]{--bg:#070809;--fg:#F4F3EF;--muted:#8D939A;--line:#24272C;--panel:#121418;--accent:#D4914F;color-scheme:dark}
 
 *{box-sizing:border-box}
 body{background:var(--bg);color:var(--fg);font-family:var(--f-text);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
@@ -62,8 +63,6 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
 .sig b{display:block;font-family:var(--f-display);font-weight:700;font-size:21px;text-transform:uppercase;letter-spacing:.03em}
 .sig .pr{font-family:var(--f-mono);color:var(--accent)}
 .sig .t{color:var(--muted)}
-.rule{margin-top:32px;padding:18px 20px;background:var(--panel);display:grid;gap:6px}
-.rule p:not(.label){margin:0;max-width:70ch}
 .done{list-style:none;margin:0;padding:0;display:grid}
 .done li{display:grid;grid-template-columns:110px minmax(0,1fr);gap:4px 16px;padding-block:13px;border-top:1px solid var(--line)}
 .done strong{font-family:var(--f-mono);font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding-top:3px}
@@ -139,6 +138,13 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
 .tile.c .icon{box-shadow:0 1px 2px var(--shadow)}
 
 /* Tagline */
+.ref{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:20px 40px;padding:24px;background:var(--panel)}
+.ref dl{margin:0;display:grid;gap:14px}
+.ref dt{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.ref dd{margin:4px 0 0;font-size:18px;line-height:1.4}
+.ref .pattern{font-size:18px;line-height:1.45;margin:8px 0 0}
+.ref .src{font-family:var(--f-mono);font-size:12px;color:var(--muted);margin:10px 0 0}
+@media (max-width:760px){.ref{grid-template-columns:1fr;padding:20px}}
 .set{margin-top:40px;background:var(--ink);color:var(--chalk);padding:clamp(24px,4vw,44px)}
 .set .tier{display:grid;grid-template-columns:150px minmax(0,1fr);gap:8px 24px;padding-block:18px;border-top:1px solid var(--steel-line)}
 .set .tier:first-child{border-top:0;padding-top:0}
@@ -147,6 +153,7 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
 .set .ml{font-size:clamp(17px,1.8vw,20px);line-height:1.45;margin:0;max-width:48ch}
 .set .so{font-family:var(--f-display);font-weight:600;text-transform:uppercase;letter-spacing:.14em;font-size:20px;margin:0;color:var(--bronze-hi)}
 @media (max-width:600px){.set .tier{grid-template-columns:1fr}}
+.set .mf{font-family:var(--f-display);font-weight:700;text-transform:uppercase;font-size:clamp(26px,3.4vw,38px);line-height:1;margin:0;color:var(--bronze-hi)}
 .set .hs{font-family:var(--f-display);font-weight:700;text-transform:uppercase;font-size:clamp(24px,3vw,32px);line-height:1;margin:0}
 .set .tn{font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;color:var(--ti);margin:8px 0 0}
 .trace{margin-top:36px;overflow-x:auto}
@@ -174,6 +181,9 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
 .sw-name{display:block;font-weight:600;margin-top:10px;line-height:1.2}
 .sw-hex{display:block;font-family:var(--f-mono);font-size:13px;user-select:all}
 .sw-role{display:block;font-size:13px;color:var(--muted);line-height:1.35;margin-top:4px}
+.molten{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);gap:16px 24px;align-items:center;margin-top:24px}
+.molten-bar{display:block;height:56px;background:var(--molten)}
+@media (max-width:640px){.molten{grid-template-columns:1fr}}
 .contrast{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
 .contrast div{display:flex;align-items:center;gap:12px;padding:12px 16px;font-family:var(--f-mono);font-size:13px}
 .contrast svg{width:28px;height:28px}
@@ -197,7 +207,7 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
 @media (max-width:700px){.site-links{display:none}.site-cta{margin-left:auto}}
 .site-body{position:relative;z-index:1;padding:clamp(32px,6vw,72px) 20px clamp(32px,5vw,56px)}
 .site-eye{font-family:var(--f-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--bronze-hi);margin:0}
-.site-h{font-family:var(--f-display);font-weight:800;text-transform:uppercase;font-size:clamp(44px,7vw,88px);line-height:.88;margin:16px 0 18px;max-width:11ch}
+.site-h{font-family:var(--f-display);font-weight:800;text-transform:uppercase;font-size:clamp(40px,6vw,76px);line-height:.88;margin:16px 0 18px;max-width:15ch}
 .site-p{font-size:clamp(16px,1.7vw,19px);line-height:1.5;color:var(--ti);max-width:44ch;margin:0 0 26px}
 .site-btns{display:flex;flex-wrap:wrap;gap:12px}
 .btn{display:inline-block;font-weight:600;font-size:15px;padding:12px 20px;text-decoration:none}
@@ -207,14 +217,14 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
 .site-strip div{padding:14px 20px;border-right:1px solid var(--steel-line);min-width:0}
 .site-strip dt{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.1em;color:var(--ti)}
 .site-strip dd{margin:3px 0 0;font-family:var(--f-mono);font-size:13px}
-.site-super{position:absolute;right:-60px;top:40px;width:min(520px,60%);height:auto;aspect-ratio:1;color:var(--steel);z-index:0}
-@media (max-width:700px){.site-super{width:300px;right:-110px;top:70px;opacity:.7}}
+.site-super{position:absolute;right:-60px;top:40px;width:min(520px,60%);height:auto;aspect-ratio:1;opacity:.3;z-index:0}
+@media (max-width:700px){.site-super{width:300px;right:-110px;top:70px;opacity:.2}}
 .uses{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:32px;margin-top:32px;align-items:start}
 .uses>div{min-width:0}
 .ucap{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:12px 0 0}
 .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:14px}
 .card{aspect-ratio:85/55;max-width:100%;padding:16px 18px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 1px 2px var(--shadow),0 10px 26px var(--shadow)}
-.card.front{background:var(--ink);align-items:center;justify-content:center}
+.card.front{background:var(--ink);align-items:center;justify-content:center;outline:1px solid var(--steel-line);outline-offset:-1px}
 .card.front .lk{--s:34px}
 .card.front .lk-sub{font-size:6.5px}
 .card.back{background:var(--paper);color:var(--ink)}
@@ -259,6 +269,12 @@ code{font-family:var(--f-mono);font-size:.95em}
       <rect width="64" height="64" fill="#fff"/>
       <path d="M17.5 17.5H46.5V32A14.5 14.5 0 0 1 17.5 32Z M25 25H39V32A7 7 0 0 1 25 32Z" fill="none" stroke="#000" stroke-width="3.2"/>
     </mask>
+    <linearGradient id="molten" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#8E5329"/><stop offset=".55" stop-color="#D4914F"/><stop offset="1" stop-color="#F2C38E"/>
+    </linearGradient>
+    <symbol id="mk-a-molten" viewBox="0 0 64 64">
+      <path d="M10 10H54V32A22 22 0 0 1 10 32Z" fill="url(#molten)" mask="url(#mk-a-cut)"/>
+    </symbol>
     <symbol id="mk-a" viewBox="0 0 64 64">
       <path d="M10 10H54V32A22 22 0 0 1 10 32Z" fill="currentColor" mask="url(#mk-a-cut)"/>
     </symbol>
@@ -267,7 +283,7 @@ code{font-family:var(--f-mono);font-size:.95em}
 
 <header class="hero">
   <div class="wrap">
-    <div class="meta"><span>Dike Industries</span><span>Identity, round 5</span><span>17 October 2026</span></div>
+    <div class="meta"><span>Dike Industries</span><span>Identity, round 6</span><span>17 October 2026</span></div>
     <div class="hero-stage">
       <div class="lk on-ink" role="img" aria-label="Dike Industries logo">
         <svg viewBox="0 0 64 64"><use href="#mk-a"/></svg>
@@ -278,7 +294,7 @@ code{font-family:var(--f-mono);font-size:.95em}
     <div class="hero-tag">
       <div>
         <p class="label">Tagline</p>
-        <p class="line">Engineered in Africa. Made from Waste. Built for the World.</p>
+        <p class="line">Engineered from Waste. Built for the Future.</p>
       </div>
       <p class="mission">We turn waste into tested materials, parts and equipment for industry and defence.</p>
     </div>
@@ -375,9 +391,9 @@ code{font-family:var(--f-mono);font-size:.95em}
           <li>The first line of every intro, spoken out loud</li>
         </ul>
         <div class="sig" aria-label="Example email signature">
-          <b>Duke</b>
+          <b>Emmanuel Udeze (Robin)</b>
           Founder · Dike Industries <span class="pr">/dee-keh/</span><br>
-          <span class="t">Engineered from waste. Built for the world.</span>
+          <span class="t">Engineered from waste. Built for the future.</span>
         </div>
       </div>
     </div>
@@ -388,7 +404,7 @@ code{font-family:var(--f-mono);font-size:.95em}
   <div class="wrap">
     <div class="sec-head">
       <div><p class="label">Lockups</p><h2 class="sec-title">How it sits</h2></div>
-      <p class="sec-lede">Polished bronze on ink is the main version. Cast bronze takes over on light grounds. The full bronze ground suits signage and merchandise.</p>
+      <p class="sec-lede">Forged Bronze on Void is the main version. Cast bronze takes over on light grounds. The full bronze ground suits signage and merchandise.</p>
     </div>
     <div class="tiles">
       <div class="tile k">
@@ -429,47 +445,54 @@ code{font-family:var(--f-mono);font-size:.95em}
 <section class="sec" id="tagline">
   <div class="wrap">
     <div class="sec-head">
-      <div><p class="label">Tagline</p><h2 class="sec-title">Vision and mission in one line</h2></div>
-      <p class="sec-lede">Three short beats: where Dike builds, what it builds from, who it builds for. Africa first, then the world.</p>
+      <div><p class="label">Tagline</p><h2 class="sec-title">Built for the future</h2></div>
+      <p class="sec-lede">Global from day one. The name Dike and the Igbo-Ukwu bronze already show where you come from, so the tagline is free to talk about where you're going.</p>
+    </div>
+    <div class="ref">
+      <div>
+        <p class="label">The SpaceX and Tesla pattern</p>
+        <p class="pattern">Name a future the whole world shares. Name no region. Let the product follow.</p>
+        <p class="src">Sources: tesla.com and spacex.com</p>
+      </div>
+      <dl>
+        <div><dt>Tesla mission</dt><dd>Accelerate the world's transition to sustainable energy.</dd></div>
+        <div><dt>SpaceX goal</dt><dd>Enabling people to live on other planets.</dd></div>
+      </dl>
     </div>
 
     <div class="set" aria-label="Dike tagline set">
-      <div class="tier"><span class="tl">Headline</span><p class="hl">Engineered in Africa. Made from Waste. Built for the World.</p></div>
-      <div class="tier"><span class="tl">Short form</span><div><p class="hs">Engineered from Waste. Built for the World.</p><p class="tn">Business cards, social bios, site footer</p></div></div>
+      <div class="tier"><span class="tl">Tagline</span><p class="hl">Engineered from Waste. Built for the Future.</p></div>
+      <div class="tier"><span class="tl">Manifesto</span><div><p class="mf">Building the future from what the world throws away.</p><p class="tn">Website hero, deck cover, launch video</p></div></div>
       <div class="tier"><span class="tl">Mission line</span><p class="ml">We turn waste into tested materials, parts and equipment for industry and defence.</p></div>
-      <div class="tier"><span class="tl">Vision line</span><p class="ml">To build an African manufacturer that turns recycled materials into high-performance hardware and competes anywhere in the world.</p></div>
+      <div class="tier"><span class="tl">Vision line</span><p class="ml">To build a globally competitive industrial and defence manufacturer that turns recycled materials into high-performance hardware.</p></div>
+      <div class="tier"><span class="tl">Sign-off</span><p class="so">From waste to strength</p></div>
     </div>
 
     <div class="trace">
       <table>
-        <thead><tr><th>Beat</th><th>What it says</th><th>Where it comes from</th></tr></thead>
+        <thead><tr><th>Words</th><th>What it says</th><th>Where it comes from</th></tr></thead>
         <tbody>
-          <tr><td class="beat">Engineered in Africa</td><td>Where you build first</td><td class="src">Your Africa-first decision, and the mission's "engineering, materials innovation, and manufacturing"</td></tr>
-          <tr><td class="beat">Made from waste</td><td>What you build from</td><td class="src">Mission: "convert underutilized waste resources into valuable industrial products"</td></tr>
-          <tr><td class="beat">Built for the world</td><td>Who you build for</td><td class="src">Vision: "a globally competitive industrial and defence manufacturing company"</td></tr>
+          <tr><td class="beat">Engineered</td><td>How you work</td><td class="src">Mission: "through engineering, materials innovation, and manufacturing"</td></tr>
+          <tr><td class="beat">From waste</td><td>What you build from</td><td class="src">Mission: "convert underutilized waste resources into valuable industrial products"</td></tr>
+          <tr><td class="beat">Built for the future</td><td>Where you're headed</td><td class="src">Vision: "a globally competitive industrial and defence manufacturing company," and the integrated industrial group in Phase 5</td></tr>
         </tbody>
       </table>
     </div>
 
     <div class="lineage">
-      <p class="label">What the first lines gave us</p>
+      <p class="label">What the earlier lines gave us</p>
       <ul>
-        <li><span class="q">Engineered from Waste. Built for Performance.</span><p>Kept the two-beat build and the word "engineered."</p></li>
-        <li><span class="q">Turning Recycled Materials into Industrial Capability.</span><p>Kept the idea of waste becoming capability. Cut the length.</p></li>
-        <li><span class="q">Africa's Industrial Strength. Built for the World.</span><p>Kept Africa first and "Built for the World."</p></li>
+        <li><span class="q">Engineered from Waste. Built for Performance.</span><p>Kept the structure. Swapped "performance" for "the future." Performance is a spec. The future is a mission.</p></li>
+        <li><span class="q">Turning Waste into Industrial Strength.</span><p>Kept as the strongest alternative. "From waste to strength" survives as the sign-off.</p></li>
+        <li><span class="q">Engineered in Africa. Made from Waste. Built for the World.</span><p>Dropped the region. Kept the idea that each part of the line does one job.</p></li>
         <li><span class="q">Strength, recovered. Built brave.</span><p>Dropped. Both need the backstory to make sense.</p></li>
       </ul>
     </div>
 
-    <div class="rule">
-      <p class="label">One wording rule</p>
-      <p>Keep Africa next to strength or engineering, never next to waste. A line like "Turning Africa's waste into…" can read as if Africa is a dumping ground. The headline passes: Africa sits with "engineered."</p>
-    </div>
-
     <ul class="alts">
-      <li><span class="a">Engineered from Waste. Built for Performance.</span><p>Your vision doc's line. Strong on mission and quality, with no Africa or global signal.</p></li>
-      <li><span class="a">Africa's Industrial Strength. Built for the World.</span><p>Round 4. Africa first and global, but it says nothing about waste or engineering.</p></li>
-      <li><span class="a">Engineered in Africa. Built for the World.</span><p>Shorter. Drops waste, so the mission line has to carry it.</p></li>
+      <li><span class="a">Turning Waste into Industrial Strength.</span><p>Global, plain, and carries the meaning of Dike. Less forward-looking.</p></li>
+      <li><span class="a">Building the Future from What the World Throws Away.</span><p>The manifesto as the tagline. Boldest, closest to SpaceX and Tesla, but long for a business card.</p></li>
+      <li><span class="a">Engineered from Waste. Built for Performance.</span><p>Your vision doc's original. Strong on quality, with no sense of where the company is headed.</p></li>
     </ul>
   </div>
 </section>
@@ -477,20 +500,24 @@ code{font-family:var(--f-mono);font-size:.95em}
 <section class="sec" id="color">
   <div class="wrap">
     <div class="sec-head">
-      <div><p class="label">Color</p><h2 class="sec-title">Bronze on ink</h2></div>
-      <p class="sec-lede">Two bronzes keep the mark readable on both grounds. Ink and chalk carry the rest. Patina is the only supporting color.</p>
+      <div><p class="label">Color</p><h2 class="sec-title">Black, white, bronze</h2></div>
+      <p class="sec-lede">Deep black and clean white do most of the work. Bronze is the only color, and it carries the heritage. The molten gradient is for big moments only.</p>
     </div>
     <ul class="swatches">
-      <li><span class="chip" style="background:var(--ink)"></span><span class="sw-name">Uli Ink</span><span class="sw-hex">#15171B</span><span class="sw-role">Dark ground, text on light</span></li>
-      <li><span class="chip" style="background:var(--chalk)"></span><span class="sw-name">Nzu Chalk</span><span class="sw-hex">#ECEAE4</span><span class="sw-role">Light ground, text on dark</span></li>
-      <li><span class="chip" style="background:var(--bronze-hi)"></span><span class="sw-name">Polished Bronze</span><span class="sw-hex">#C68F55</span><span class="sw-role">Mark and accent on ink</span></li>
-      <li><span class="chip" style="background:var(--bronze)"></span><span class="sw-name">Cast Bronze</span><span class="sw-hex">#8E5329</span><span class="sw-role">Mark and accent on chalk</span></li>
-      <li><span class="chip" style="background:var(--patina)"></span><span class="sw-name">Patina</span><span class="sw-hex">#5F7368</span><span class="sw-role">Charts, status, secondary</span></li>
-      <li><span class="chip" style="background:var(--steel)"></span><span class="sw-name">Steel</span><span class="sw-hex">#24272C</span><span class="sw-role">Panels and plates on ink</span></li>
+      <li><span class="chip" style="background:var(--ink)"></span><span class="sw-name">Void</span><span class="sw-hex">#070809</span><span class="sw-role">Main ground, text on light</span></li>
+      <li><span class="chip" style="background:var(--steel)"></span><span class="sw-name">Carbon</span><span class="sw-hex">#121418</span><span class="sw-role">Panels, cards and plates on black</span></li>
+      <li><span class="chip" style="background:var(--chalk)"></span><span class="sw-name">Nzu White</span><span class="sw-hex">#F4F3EF</span><span class="sw-role">Text on black, light ground</span></li>
+      <li><span class="chip" style="background:var(--bronze-hi)"></span><span class="sw-name">Forged Bronze</span><span class="sw-hex">#D4914F</span><span class="sw-role">Mark and accent on black</span></li>
+      <li><span class="chip" style="background:var(--bronze)"></span><span class="sw-name">Cast Bronze</span><span class="sw-hex">#8E5329</span><span class="sw-role">Mark and accent on white</span></li>
+      <li><span class="chip" style="background:var(--ti)"></span><span class="sw-name">Titanium</span><span class="sw-hex">#8D939A</span><span class="sw-role">Secondary text and lines</span></li>
     </ul>
+    <div class="molten">
+      <span class="molten-bar"></span>
+      <div><span class="sw-name">Molten</span><span class="sw-role">Cast Bronze to Forged Bronze to a bright highlight. Launch graphics, the website background shield, product reveals. Never on the logo itself.</span></div>
+    </div>
     <div class="contrast">
-      <div style="background:var(--ink);color:var(--chalk)"><svg viewBox="0 0 64 64" style="color:var(--bronze-hi)" aria-hidden="true"><use href="#mk-a"/></svg>Polished on ink · 6.4:1</div>
-      <div style="background:var(--paper);color:var(--ink);box-shadow:inset 0 0 0 1px var(--line)"><svg viewBox="0 0 64 64" style="color:var(--bronze)" aria-hidden="true"><use href="#mk-a"/></svg>Cast on chalk · 5.1:1</div>
+      <div style="background:var(--ink);color:var(--chalk)"><svg viewBox="0 0 64 64" style="color:var(--bronze-hi)" aria-hidden="true"><use href="#mk-a"/></svg>Forged on Void · 7.6:1</div>
+      <div style="background:var(--paper);color:var(--ink);box-shadow:inset 0 0 0 1px var(--line)"><svg viewBox="0 0 64 64" style="color:var(--bronze)" aria-hidden="true"><use href="#mk-a"/></svg>Cast on Nzu White · 5.5:1</div>
     </div>
   </div>
 </section>
@@ -506,7 +533,7 @@ code{font-family:var(--f-mono);font-size:.95em}
         <p class="label">From C</p>
         <h3>Barlow Condensed ExtraBold</h3>
         <p class="use">Logo, headlines, signage, product markings</p>
-        <p class="sp-display">Engineered in Africa. Made from waste. Built for the world.</p>
+        <p class="sp-display">Engineered from waste. Built for the future.</p>
       </div>
       <div>
         <p class="label">From A</p>
@@ -532,7 +559,7 @@ code{font-family:var(--f-mono);font-size:.95em}
     </div>
 
     <div class="site">
-      <svg class="site-super" viewBox="0 0 64 64" aria-hidden="true"><use href="#mk-a"/></svg>
+      <svg class="site-super" viewBox="0 0 64 64" aria-hidden="true"><use href="#mk-a-molten"/></svg>
       <div class="site-nav">
         <div class="lk on-ink" role="img" aria-label="Dike Industries"><svg viewBox="0 0 64 64"><use href="#mk-a"/></svg><div class="lk-word"><span class="lk-name">DIKE</span><span class="lk-sub">INDUSTRIES</span></div></div>
         <nav class="site-links" aria-label="Example site navigation"><span>Products</span><span>Materials</span><span>Testing</span><span>Company</span></nav>
@@ -540,7 +567,7 @@ code{font-family:var(--f-mono);font-size:.95em}
       </div>
       <div class="site-body">
         <p class="site-eye">Industrial &amp; defence manufacturing</p>
-        <h3 class="site-h">Engineered in Africa. Made from waste. Built for the world.</h3>
+        <h3 class="site-h">Building the future from what the world throws away.</h3>
         <p class="site-p">We turn waste into tested materials, parts and equipment for industry and defence.</p>
         <div class="site-btns"><a class="btn pri" href="#use">Talk to us</a><a class="btn sec" href="#use">See how we test</a></div>
       </div>
@@ -557,8 +584,8 @@ code{font-family:var(--f-mono);font-size:.95em}
         <div class="cards">
           <div class="card front"><div class="lk on-ink" role="img" aria-label="Card front logo"><svg viewBox="0 0 64 64"><use href="#mk-a"/></svg><div class="lk-word"><span class="lk-name">DIKE</span><span class="lk-sub">INDUSTRIES</span></div></div></div>
           <div class="card back">
-            <div><div class="cb-name">Duke</div><div class="cb-role">Founder</div><div class="cb-pr">DIKE /dee-keh/</div></div>
-            <div class="cb-foot"><span class="cb-tag">Engineered from waste.<br>Built for the world.</span><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#mk-a"/></svg></div>
+            <div><div class="cb-name">Emmanuel Udeze</div><div class="cb-role">Founder</div><div class="cb-pr">DIKE /dee-keh/</div></div>
+            <div class="cb-foot"><span class="cb-tag">Engineered from waste.<br>Built for the future.</span><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#mk-a"/></svg></div>
           </div>
         </div>
         <p class="ucap">Business card · 85 × 55 mm, front and back</p>
@@ -595,7 +622,9 @@ code{font-family:var(--f-mono);font-size:.95em}
           <li><strong>Mark</strong><span>A's shield, one version at every size</span></li>
           <li><strong>Wordmark</strong><span>Condensed, from C</span></li>
           <li><strong>Say it</strong><span>/dee-keh/</span></li>
-          <li><strong>Tagline</strong><span class="open">Engineered in Africa. Made from Waste. Built for the World. Waiting on your OK.</span></li>
+          <li><strong>Founder</strong><span>Emmanuel Udeze (Robin)</span></li>
+          <li><strong>Color</strong><span class="open">Void, Nzu White, Forged Bronze. Waiting on your OK.</span></li>
+          <li><strong>Tagline</strong><span class="open">Engineered from Waste. Built for the Future. Waiting on your OK.</span></li>
         </ul>
       </div>
       <div>
@@ -616,5 +645,5 @@ code{font-family:var(--f-mono);font-size:.95em}
 </main>
 
 <footer class="foot">
-  <div class="wrap"><span>Mark source files: <code>brand/marks/</code> in the Dike repo</span><span>Round 5 · 17 Oct 2026</span></div>
+  <div class="wrap"><span>Mark source files: <code>brand/marks/</code> in the Dike repo</span><span>Round 6 · 17 Oct 2026</span></div>
 </footer>
