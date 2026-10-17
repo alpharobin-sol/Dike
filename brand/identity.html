@@ -47,6 +47,12 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
 .on-chalk{color:var(--ink)} .on-chalk svg{color:var(--bronze)} .on-chalk .lk-sub{color:var(--bronze)}
 .on-bronze{color:var(--chalk)} .on-bronze svg,.on-bronze .lk-sub{color:var(--chalk)}
 .one-ink{color:var(--ink)} .one-ink svg,.one-ink .lk-sub{color:var(--ink)}
+.on-theme{color:var(--fg)} .on-theme svg,.on-theme .lk-sub{color:var(--accent)}
+.lk-x .lk-name{font-family:var(--f-text);font-stretch:125%;font-weight:800;font-size:calc(var(--s)*.98);line-height:.84;letter-spacing:.01em}
+.lk-x .lk-sub{font-family:var(--f-text);font-stretch:112%;font-weight:600;font-size:calc(var(--s)*.12);letter-spacing:.42em}
+.fig .wm{font-family:var(--f-display);font-weight:800;font-size:clamp(76px,11.5vw,116px);line-height:.8;color:var(--fg)}
+.wm-tile{background:var(--ink);min-height:240px;display:grid;place-items:center;padding:32px 16px}
+.wm-tile .lk{--s:clamp(44px,5.4vw,64px)}
 
 /* Hero */
 .hero{background:var(--ink);color:var(--chalk);padding-block:32px 56px;border-bottom:1px solid var(--steel-line)}
@@ -226,35 +232,29 @@ code{font-family:var(--f-mono);font-size:.95em}
 
 <svg class="sym" aria-hidden="true" focusable="false">
   <defs>
-    <clipPath id="shield-clip"><path d="M10 10H54V32A22 22 0 0 1 10 32Z"/></clipPath>
-    <clipPath id="d-clip"><path d="M11 10H31A22 22 0 0 1 31 54H11Z"/></clipPath>
-    <symbol id="mk-rib" viewBox="0 0 64 64">
-      <g clip-path="url(#shield-clip)" fill="currentColor">
-        <rect x="10" width="8" height="64"/><rect x="22" width="8" height="64"/><rect x="34" width="8" height="64"/><rect x="46" width="8" height="64"/>
-      </g>
+    <mask id="mk-a-cut" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64">
+      <rect width="64" height="64" fill="#fff"/>
+      <path d="M17.5 17.5H46.5V32A14.5 14.5 0 0 1 17.5 32Z M25 25H39V32A7 7 0 0 1 25 32Z" fill="none" stroke="#000" stroke-width="3.2"/>
+    </mask>
+    <mask id="mk-a-cut-s" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64">
+      <rect width="64" height="64" fill="#fff"/>
+      <path d="M20 20H44V32A12 12 0 0 1 20 32Z" fill="none" stroke="#000" stroke-width="5"/>
+    </mask>
+    <symbol id="mk-a" viewBox="0 0 64 64">
+      <path d="M10 10H54V32A22 22 0 0 1 10 32Z" fill="currentColor" mask="url(#mk-a-cut)"/>
     </symbol>
-    <symbol id="mk-lay" viewBox="0 0 64 64">
-      <g clip-path="url(#shield-clip)" fill="currentColor">
-        <rect y="10" width="64" height="8"/><rect y="22" width="64" height="8"/><rect y="34" width="64" height="8"/><rect y="46" width="64" height="8"/>
-      </g>
-    </symbol>
-    <symbol id="mk-c" viewBox="0 0 64 64">
-      <g clip-path="url(#d-clip)" fill="currentColor">
-        <rect y="10" width="64" height="8"/><rect y="22" width="64" height="8"/><rect y="34" width="64" height="8"/><rect y="46" width="64" height="8"/>
-      </g>
-    </symbol>
-    <symbol id="shield-out" viewBox="0 0 64 64">
-      <path d="M10 10H54V32A22 22 0 0 1 10 32Z" fill="none" stroke="currentColor" stroke-width="3"/>
+    <symbol id="mk-a-small" viewBox="0 0 64 64">
+      <path d="M10 10H54V32A22 22 0 0 1 10 32Z" fill="currentColor" mask="url(#mk-a-cut-s)"/>
     </symbol>
   </defs>
 </svg>
 
 <header class="hero">
   <div class="wrap">
-    <div class="meta"><span>Dike Industries</span><span>Identity, round 2</span><span>17 October 2026</span></div>
+    <div class="meta"><span>Dike Industries</span><span>Identity, round 3</span><span>17 October 2026</span></div>
     <div class="hero-stage">
       <div class="lk on-ink" role="img" aria-label="Dike Industries logo">
-        <svg viewBox="0 0 64 64"><use href="#mk-rib"/></svg>
+        <svg viewBox="0 0 64 64"><use href="#mk-a"/></svg>
         <div class="lk-word"><span class="lk-name">DIKE</span><span class="lk-sub">INDUSTRIES</span></div>
       </div>
     </div>
@@ -272,41 +272,35 @@ code{font-family:var(--f-mono);font-size:.95em}
 <section class="sec" id="merge">
   <div class="wrap">
     <div class="sec-head">
-      <div><p class="label">The merge</p><h2 class="sec-title">One mark from two</h2></div>
-      <p class="sec-lede">Turn C's bar mark on its side and it becomes A's shield. Cast it in Igbo-Ukwu bronze and both ideas live in one shape.</p>
+      <div><p class="label">The merge</p><h2 class="sec-title">A's shield, C's name</h2></div>
+      <p class="sec-lede">The shield and the bronze come from A. The bold wordmark comes from C. Together they make one lockup.</p>
     </div>
     <div class="build">
       <div class="fig">
-        <svg class="m" viewBox="0 0 64 64" style="color:var(--muted)" aria-hidden="true"><use href="#mk-c"/></svg>
-        <span class="cap">C · bar mark</span>
+        <svg class="m" viewBox="0 0 64 64" style="color:var(--accent)" aria-hidden="true"><use href="#mk-a"/></svg>
+        <span class="cap">A · shield mark</span>
       </div>
-      <div class="op">
-        <svg viewBox="0 0 44 20" aria-hidden="true"><path d="M2 10H40M33 3L40 10L33 17" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
-        <span>Turn 90°</span>
-      </div>
+      <div class="op"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2V18M2 10H18" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></div>
       <div class="fig">
-        <svg class="m" viewBox="0 0 64 64" style="color:var(--muted)" aria-hidden="true"><use href="#shield-out"/></svg>
-        <span class="cap">A · shield</span>
+        <span class="wm">DIKE</span>
+        <span class="cap">C · wordmark</span>
       </div>
-      <div class="op">
-        <svg viewBox="0 0 44 20" aria-hidden="true"><path d="M2 10H40M33 3L40 10L33 17" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
-        <span>Cast in bronze</span>
-      </div>
+      <div class="op"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M2 6H18M2 14H18" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></div>
       <div class="fig">
-        <svg class="m" viewBox="0 0 64 64" style="color:var(--accent)" aria-hidden="true"><use href="#mk-rib"/></svg>
-        <span class="cap">Dike mark</span>
+        <div class="lk on-theme" style="--s:clamp(40px,5vw,54px)" role="img" aria-label="Dike Industries lockup"><svg viewBox="0 0 64 64"><use href="#mk-a"/></svg><div class="lk-word"><span class="lk-name">DIKE</span><span class="lk-sub">INDUSTRIES</span></div></div>
+        <span class="cap">Dike lockup</span>
       </div>
     </div>
     <div class="from">
       <div>
         <p class="label">From A · Bronze</p>
-        <h3>Story and color</h3>
-        <ul><li>Igbo-Ukwu bronze as the signature color</li><li>The shield shape</li><li>The heritage story</li></ul>
+        <h3>Mark and color</h3>
+        <ul><li>The shield mark</li><li>Igbo-Ukwu bronze as the signature color</li><li>The heritage story</li></ul>
       </div>
       <div>
         <p class="label">From C · Agu</p>
-        <h3>Mark and voice</h3>
-        <ul><li>The four-bar mark</li><li>The condensed DIKE wordmark</li><li>Bold, all-caps headlines</li></ul>
+        <h3>Name and voice</h3>
+        <ul><li>The condensed DIKE wordmark</li><li>Bold, all-caps headlines</li></ul>
       </div>
       <div>
         <p class="label">From B · Uli</p>
@@ -320,39 +314,58 @@ code{font-family:var(--f-mono);font-size:.95em}
 <section class="sec" id="mark">
   <div class="wrap">
     <div class="sec-head">
-      <div><p class="label">Mark</p><h2 class="sec-title">Two ways to run the bars</h2></div>
-      <p class="sec-lede">Same shield, same four bars. The only choice is direction. Pick one and it becomes the only mark.</p>
+      <div><p class="label">Mark</p><h2 class="sec-title">The shield</h2></div>
+      <p class="sec-lede">The D turns on its side and becomes a shield. The inner lines echo the cast ridges on Igbo-Ukwu bronze and the layers of material inside every part.</p>
     </div>
     <div class="opts">
       <div class="opt">
-        <div class="opt-head"><h3>1 · Ribbed shield</h3><span class="rec">My pick</span></div>
+        <div class="opt-head"><h3>Full mark</h3></div>
         <div class="pair">
-          <div class="t-ink"><svg viewBox="0 0 64 64" aria-label="Ribbed shield mark on ink"><use href="#mk-rib"/></svg></div>
-          <div class="t-chalk"><svg viewBox="0 0 64 64" aria-label="Ribbed shield mark on chalk"><use href="#mk-rib"/></svg></div>
+          <div class="t-ink"><svg viewBox="0 0 64 64" aria-label="Shield mark on ink"><use href="#mk-a"/></svg></div>
+          <div class="t-chalk"><svg viewBox="0 0 64 64" aria-label="Shield mark on chalk"><use href="#mk-a"/></svg></div>
         </div>
         <div class="sizes">
-          <svg width="48" height="48" viewBox="0 0 64 64" aria-hidden="true"><use href="#mk-rib"/></svg>
-          <svg width="32" height="32" viewBox="0 0 64 64" aria-hidden="true"><use href="#mk-rib"/></svg>
-          <svg width="24" height="24" viewBox="0 0 64 64" aria-hidden="true"><use href="#mk-rib"/></svg>
-          <svg width="16" height="16" viewBox="0 0 64 64" aria-hidden="true"><use href="#mk-rib"/></svg>
-          <span>48 · 32 · 24 · 16 px</span>
+          <svg width="64" height="64" viewBox="0 0 64 64" aria-hidden="true"><use href="#mk-a"/></svg>
+          <svg width="48" height="48" viewBox="0 0 64 64" aria-hidden="true"><use href="#mk-a"/></svg>
+          <svg width="32" height="32" viewBox="0 0 64 64" aria-hidden="true"><use href="#mk-a"/></svg>
+          <span>32 px and up</span>
         </div>
-        <p class="why">Four bars stand side by side and form a shield. Separate pieces, one defence: Igwebuike, strength in numbers. The ribs recall the raised lines on Igbo-Ukwu bronze. It's C's mark turned 90°, so nothing you liked is lost.</p>
+        <p class="why">Use it at 32 px and larger: the logo, signage, documents, product plates and the website.</p>
       </div>
       <div class="opt">
-        <div class="opt-head"><h3>2 · Layered shield</h3></div>
+        <div class="opt-head"><h3>Small mark</h3></div>
         <div class="pair">
-          <div class="t-ink"><svg viewBox="0 0 64 64" aria-label="Layered shield mark on ink"><use href="#mk-lay"/></svg></div>
-          <div class="t-chalk"><svg viewBox="0 0 64 64" aria-label="Layered shield mark on chalk"><use href="#mk-lay"/></svg></div>
+          <div class="t-ink"><svg viewBox="0 0 64 64" aria-label="Small shield mark on ink"><use href="#mk-a-small"/></svg></div>
+          <div class="t-chalk"><svg viewBox="0 0 64 64" aria-label="Small shield mark on chalk"><use href="#mk-a-small"/></svg></div>
         </div>
         <div class="sizes">
-          <svg width="48" height="48" viewBox="0 0 64 64" aria-hidden="true"><use href="#mk-lay"/></svg>
-          <svg width="32" height="32" viewBox="0 0 64 64" aria-hidden="true"><use href="#mk-lay"/></svg>
-          <svg width="24" height="24" viewBox="0 0 64 64" aria-hidden="true"><use href="#mk-lay"/></svg>
-          <svg width="16" height="16" viewBox="0 0 64 64" aria-hidden="true"><use href="#mk-lay"/></svg>
-          <span>48 · 32 · 24 · 16 px</span>
+          <svg width="24" height="24" viewBox="0 0 64 64" aria-hidden="true"><use href="#mk-a-small"/></svg>
+          <svg width="20" height="20" viewBox="0 0 64 64" aria-hidden="true"><use href="#mk-a-small"/></svg>
+          <svg width="16" height="16" viewBox="0 0 64 64" aria-hidden="true"><use href="#mk-a-small"/></svg>
+          <span>Below 32 px</span>
         </div>
-        <p class="why">The bars run across, like layers of recycled material pressed into one plate. It keeps C's exact bar direction. The bottom bar shrinks to a sliver, so it reads less clearly as a shield at small sizes.</p>
+        <p class="why">Below 32 px the two ridges blur into one smudge. This version keeps a single thicker ridge, so favicons, browser tabs and small icons stay sharp.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="wordmark">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><p class="label">Wordmark</p><h2 class="sec-title">Two ways to set the name</h2></div>
+      <p class="sec-lede">The shield works with either. Condensed brings C's weight. Expanded is A's original lockup.</p>
+    </div>
+    <div class="opts">
+      <div class="opt">
+        <div class="opt-head"><h3>1 · Condensed</h3><span class="rec">My pick</span></div>
+        <div class="wm-tile"><div class="lk on-ink" role="img" aria-label="Shield with condensed wordmark"><svg viewBox="0 0 64 64"><use href="#mk-a"/></svg><div class="lk-word"><span class="lk-name">DIKE</span><span class="lk-sub">INDUSTRIES</span></div></div></div>
+        <p class="why">C's wordmark. Tall and tight, so it reads from a distance and matches the headline type. Strong on signage, equipment and defence work.</p>
+      </div>
+      <div class="opt">
+        <div class="opt-head"><h3>2 · Expanded</h3></div>
+        <div class="wm-tile"><div class="lk lk-x on-ink" role="img" aria-label="Shield with expanded wordmark"><svg viewBox="0 0 64 64"><use href="#mk-a"/></svg><div class="lk-word"><span class="lk-name">DIKE</span><span class="lk-sub">INDUSTRIES</span></div></div></div>
+        <p class="why">A's original. Wide and steady, closer to a heritage brand. Pick this and headlines switch to Archivo Expanded to match.</p>
       </div>
     </div>
   </div>
@@ -366,28 +379,28 @@ code{font-family:var(--f-mono);font-size:.95em}
     </div>
     <div class="tiles">
       <div class="tile k">
-        <div class="cnt"><div class="lk on-ink" role="img" aria-label="Horizontal logo on ink"><svg viewBox="0 0 64 64"><use href="#mk-rib"/></svg><div class="lk-word"><span class="lk-name">DIKE</span><span class="lk-sub">INDUSTRIES</span></div></div></div>
+        <div class="cnt"><div class="lk on-ink" role="img" aria-label="Horizontal logo on ink"><svg viewBox="0 0 64 64"><use href="#mk-a"/></svg><div class="lk-word"><span class="lk-name">DIKE</span><span class="lk-sub">INDUSTRIES</span></div></div></div>
         <span class="tlabel">Primary · on ink</span>
       </div>
       <div class="tile c">
-        <div class="cnt"><div class="lk on-chalk" role="img" aria-label="Horizontal logo on chalk"><svg viewBox="0 0 64 64"><use href="#mk-rib"/></svg><div class="lk-word"><span class="lk-name">DIKE</span><span class="lk-sub">INDUSTRIES</span></div></div></div>
+        <div class="cnt"><div class="lk on-chalk" role="img" aria-label="Horizontal logo on chalk"><svg viewBox="0 0 64 64"><use href="#mk-a"/></svg><div class="lk-word"><span class="lk-name">DIKE</span><span class="lk-sub">INDUSTRIES</span></div></div></div>
         <span class="tlabel">Primary · on chalk</span>
       </div>
       <div class="tile b">
-        <div class="cnt"><div class="lk lk-stack on-bronze" role="img" aria-label="Stacked logo on bronze"><svg viewBox="0 0 64 64"><use href="#mk-rib"/></svg><div class="lk-word"><span class="lk-name">DIKE</span><span class="lk-sub">INDUSTRIES</span></div></div></div>
+        <div class="cnt"><div class="lk lk-stack on-bronze" role="img" aria-label="Stacked logo on bronze"><svg viewBox="0 0 64 64"><use href="#mk-a"/></svg><div class="lk-word"><span class="lk-name">DIKE</span><span class="lk-sub">INDUSTRIES</span></div></div></div>
         <span class="tlabel">Stacked · on bronze</span>
       </div>
       <div class="tile c">
-        <div class="cnt"><div class="lk lk-stack one-ink" role="img" aria-label="Stacked one-color logo"><svg viewBox="0 0 64 64"><use href="#mk-rib"/></svg><div class="lk-word"><span class="lk-name">DIKE</span><span class="lk-sub">INDUSTRIES</span></div></div></div>
+        <div class="cnt"><div class="lk lk-stack one-ink" role="img" aria-label="Stacked one-color logo"><svg viewBox="0 0 64 64"><use href="#mk-a"/></svg><div class="lk-word"><span class="lk-name">DIKE</span><span class="lk-sub">INDUSTRIES</span></div></div></div>
         <span class="tlabel">One color · for stamps, engraving, fax</span>
       </div>
       <div class="tile c">
         <div class="cnt">
           <div class="icons">
-            <span class="icon i120"><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#mk-rib"/></svg></span>
-            <span class="icon i60"><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#mk-rib"/></svg></span>
-            <span class="icon i32"><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#mk-rib"/></svg></span>
-            <span class="icon i16"><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#mk-rib"/></svg></span>
+            <span class="icon i120"><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#mk-a"/></svg></span>
+            <span class="icon i60"><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#mk-a"/></svg></span>
+            <span class="icon i32"><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#mk-a-small"/></svg></span>
+            <span class="icon i16"><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#mk-a-small"/></svg></span>
           </div>
         </div>
         <span class="tlabel">App icon and favicon</span>
@@ -453,8 +466,8 @@ code{font-family:var(--f-mono);font-size:.95em}
       <li><span class="chip" style="background:var(--steel)"></span><span class="sw-name">Steel</span><span class="sw-hex">#24272C</span><span class="sw-role">Panels and plates on ink</span></li>
     </ul>
     <div class="contrast">
-      <div style="background:var(--ink);color:var(--chalk)"><svg viewBox="0 0 64 64" style="color:var(--bronze-hi)" aria-hidden="true"><use href="#mk-rib"/></svg>Polished on ink · 6.4:1</div>
-      <div style="background:var(--paper);color:var(--ink);box-shadow:inset 0 0 0 1px var(--line)"><svg viewBox="0 0 64 64" style="color:var(--bronze)" aria-hidden="true"><use href="#mk-rib"/></svg>Cast on chalk · 5.1:1</div>
+      <div style="background:var(--ink);color:var(--chalk)"><svg viewBox="0 0 64 64" style="color:var(--bronze-hi)" aria-hidden="true"><use href="#mk-a-small"/></svg>Polished on ink · 6.4:1</div>
+      <div style="background:var(--paper);color:var(--ink);box-shadow:inset 0 0 0 1px var(--line)"><svg viewBox="0 0 64 64" style="color:var(--bronze)" aria-hidden="true"><use href="#mk-a-small"/></svg>Cast on chalk · 5.1:1</div>
     </div>
   </div>
 </section>
@@ -496,9 +509,9 @@ code{font-family:var(--f-mono);font-size:.95em}
     </div>
 
     <div class="site">
-      <svg class="site-super" viewBox="0 0 64 64" aria-hidden="true"><use href="#mk-rib"/></svg>
+      <svg class="site-super" viewBox="0 0 64 64" aria-hidden="true"><use href="#mk-a"/></svg>
       <div class="site-nav">
-        <div class="lk on-ink" role="img" aria-label="Dike Industries"><svg viewBox="0 0 64 64"><use href="#mk-rib"/></svg><div class="lk-word"><span class="lk-name">DIKE</span><span class="lk-sub">INDUSTRIES</span></div></div>
+        <div class="lk on-ink" role="img" aria-label="Dike Industries"><svg viewBox="0 0 64 64"><use href="#mk-a"/></svg><div class="lk-word"><span class="lk-name">DIKE</span><span class="lk-sub">INDUSTRIES</span></div></div>
         <nav class="site-links" aria-label="Example site navigation"><span>Products</span><span>Materials</span><span>Testing</span><span>Company</span></nav>
         <a class="site-cta" href="#use">Talk to us</a>
       </div>
@@ -519,10 +532,10 @@ code{font-family:var(--f-mono);font-size:.95em}
     <div class="uses">
       <div>
         <div class="cards">
-          <div class="card front"><div class="lk on-ink" role="img" aria-label="Card front logo"><svg viewBox="0 0 64 64"><use href="#mk-rib"/></svg><div class="lk-word"><span class="lk-name">DIKE</span><span class="lk-sub">INDUSTRIES</span></div></div></div>
+          <div class="card front"><div class="lk on-ink" role="img" aria-label="Card front logo"><svg viewBox="0 0 64 64"><use href="#mk-a"/></svg><div class="lk-word"><span class="lk-name">DIKE</span><span class="lk-sub">INDUSTRIES</span></div></div></div>
           <div class="card back">
             <div><div class="cb-name">Duke</div><div class="cb-role">Founder</div></div>
-            <div class="cb-foot"><span class="cb-tag">Turning waste into<br>industrial strength</span><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#mk-rib"/></svg></div>
+            <div class="cb-foot"><span class="cb-tag">Turning waste into<br>industrial strength</span><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#mk-a-small"/></svg></div>
           </div>
         </div>
         <p class="ucap">Business card · 85 × 55 mm, front and back</p>
@@ -530,7 +543,7 @@ code{font-family:var(--f-mono);font-size:.95em}
       <div>
         <div class="plate">
           <span class="screw tl"></span><span class="screw tr"></span><span class="screw bl"></span><span class="screw br"></span>
-          <div class="plate-head"><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#mk-rib"/></svg>DIKE INDUSTRIES<span class="plate-tag">EXAMPLE</span></div>
+          <div class="plate-head"><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#mk-a-small"/></svg>DIKE INDUSTRIES<span class="plate-tag">EXAMPLE</span></div>
           <div class="plate-body">
             <dl class="plate-rows">
               <div><dt>MODEL</dt><dd>DK-C04</dd></div>
@@ -556,7 +569,7 @@ code{font-family:var(--f-mono);font-size:.95em}
         <p class="label">Your move</p>
         <h3>Three calls left</h3>
         <ol class="decide">
-          <li><strong>Mark direction</strong><span>Ribbed (bars up and down) or layered (bars across)?</span></li>
+          <li><strong>Wordmark</strong><span>Condensed (from C) or expanded (A's original)?</span></li>
           <li><strong>Tagline</strong><span>Keep the headline above, or pick an alternative? Africa-first or global?</span></li>
           <li><strong>Name in English</strong><span>Teach the sound, always use "Dike Industries", or add an accent?</span></li>
         </ol>
@@ -579,5 +592,5 @@ code{font-family:var(--f-mono);font-size:.95em}
 </main>
 
 <footer class="foot">
-  <div class="wrap"><span>Mark source files: <code>brand/marks/</code> in the Dike repo</span><span>Round 2 · 17 Oct 2026</span></div>
+  <div class="wrap"><span>Mark source files: <code>brand/marks/</code> in the Dike repo</span><span>Round 3 · 17 Oct 2026</span></div>
 </footer>
