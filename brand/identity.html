@@ -139,13 +139,6 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
 .tile.c .icon{box-shadow:0 1px 2px var(--shadow)}
 
 /* Tagline */
-.terra{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:20px 40px;padding:24px;background:var(--panel)}
-.terra dl{margin:0;display:grid;gap:14px}
-.terra dt{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
-.terra dd{margin:4px 0 0;font-size:18px;line-height:1.4}
-.terra .src{font-family:var(--f-mono);font-size:12px;color:var(--muted);margin:10px 0 0}
-.terra .pattern{font-size:18px;line-height:1.45;margin:8px 0 0}
-@media (max-width:760px){.terra{grid-template-columns:1fr;padding:20px}}
 .set{margin-top:40px;background:var(--ink);color:var(--chalk);padding:clamp(24px,4vw,44px)}
 .set .tier{display:grid;grid-template-columns:150px minmax(0,1fr);gap:8px 24px;padding-block:18px;border-top:1px solid var(--steel-line)}
 .set .tier:first-child{border-top:0;padding-top:0}
@@ -154,9 +147,20 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
 .set .ml{font-size:clamp(17px,1.8vw,20px);line-height:1.45;margin:0;max-width:48ch}
 .set .so{font-family:var(--f-display);font-weight:600;text-transform:uppercase;letter-spacing:.14em;font-size:20px;margin:0;color:var(--bronze-hi)}
 @media (max-width:600px){.set .tier{grid-template-columns:1fr}}
-.reasons{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:24px 36px;margin-top:32px}
-.reasons div{border-top:1px solid var(--line);padding-top:12px;min-width:0}
-.reasons p{margin:6px 0 0}
+.set .hs{font-family:var(--f-display);font-weight:700;text-transform:uppercase;font-size:clamp(24px,3vw,32px);line-height:1;margin:0}
+.set .tn{font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;color:var(--ti);margin:8px 0 0}
+.trace{margin-top:36px;overflow-x:auto}
+.trace table{width:100%;border-collapse:collapse;min-width:640px}
+.trace th,.trace td{text-align:left;vertical-align:top;padding:14px 24px 14px 0;border-bottom:1px solid var(--line)}
+.trace th{font-family:var(--f-mono);font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.trace td.beat{font-family:var(--f-display);font-weight:700;text-transform:uppercase;font-size:22px;line-height:1.05;white-space:nowrap}
+.trace td.src{color:var(--muted)}
+.lineage{margin-top:40px}
+.lineage ul{list-style:none;margin:10px 0 0;padding:0;display:grid}
+.lineage li{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:4px 32px;padding-block:12px;border-top:1px solid var(--line)}
+.lineage .q{font-weight:600}
+.lineage p{margin:0;color:var(--muted)}
+@media (max-width:640px){.lineage li{grid-template-columns:1fr}}
 .alts{list-style:none;margin:40px 0 0;padding:0;display:grid}
 .alts li{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:6px 32px;padding-block:16px;border-top:1px solid var(--line)}
 .alts .a{font-family:var(--f-display);font-weight:700;text-transform:uppercase;font-size:26px;line-height:1;letter-spacing:.01em}
@@ -263,7 +267,7 @@ code{font-family:var(--f-mono);font-size:.95em}
 
 <header class="hero">
   <div class="wrap">
-    <div class="meta"><span>Dike Industries</span><span>Identity, round 4</span><span>17 October 2026</span></div>
+    <div class="meta"><span>Dike Industries</span><span>Identity, round 5</span><span>17 October 2026</span></div>
     <div class="hero-stage">
       <div class="lk on-ink" role="img" aria-label="Dike Industries logo">
         <svg viewBox="0 0 64 64"><use href="#mk-a"/></svg>
@@ -274,9 +278,9 @@ code{font-family:var(--f-mono);font-size:.95em}
     <div class="hero-tag">
       <div>
         <p class="label">Tagline</p>
-        <p class="line">Africa's Industrial Strength. Built for the World.</p>
+        <p class="line">Engineered in Africa. Made from Waste. Built for the World.</p>
       </div>
-      <p class="mission">We turn recycled materials into tested hardware for industry and defence, starting in Africa.</p>
+      <p class="mission">We turn waste into tested materials, parts and equipment for industry and defence.</p>
     </div>
   </div>
 </header>
@@ -373,7 +377,7 @@ code{font-family:var(--f-mono);font-size:.95em}
         <div class="sig" aria-label="Example email signature">
           <b>Duke</b>
           Founder · Dike Industries <span class="pr">/dee-keh/</span><br>
-          <span class="t">Africa's industrial strength. Built for the world.</span>
+          <span class="t">Engineered from waste. Built for the world.</span>
         </div>
       </div>
     </div>
@@ -425,42 +429,47 @@ code{font-family:var(--f-mono);font-size:.95em}
 <section class="sec" id="tagline">
   <div class="wrap">
     <div class="sec-head">
-      <div><p class="label">Tagline</p><h2 class="sec-title">Africa first, then the world</h2></div>
-      <p class="sec-lede">Terra Industries started with Africa and widened its frame as it grew. Dike's line does both in one go: it opens with Africa and points at the world.</p>
-    </div>
-    <div class="terra">
-      <div>
-        <p class="label">The Terra pattern</p>
-        <p class="pattern">Start with your home region. Widen the frame as you grow. Keep every line plain enough to get in one read.</p>
-        <p class="src">Sources: terraindustries.co and company directory listings, October 2026</p>
-      </div>
-      <dl>
-        <div><dt>Early slogan</dt><dd>Protecting Africa's critical infrastructure</dd></div>
-        <div><dt>Headline today</dt><dd>Defending the Global South</dd></div>
-      </dl>
+      <div><p class="label">Tagline</p><h2 class="sec-title">Vision and mission in one line</h2></div>
+      <p class="sec-lede">Three short beats: where Dike builds, what it builds from, who it builds for. Africa first, then the world.</p>
     </div>
 
-    <div class="set" aria-label="Proposed Dike tagline set">
-      <div class="tier"><span class="tl">Headline</span><p class="hl">Africa's Industrial Strength. Built for the World.</p></div>
-      <div class="tier"><span class="tl">Mission line</span><p class="ml">We turn recycled materials into tested hardware for industry and defence, starting in Africa.</p></div>
-      <div class="tier"><span class="tl">Sign-off</span><p class="so">From waste to strength</p></div>
+    <div class="set" aria-label="Dike tagline set">
+      <div class="tier"><span class="tl">Headline</span><p class="hl">Engineered in Africa. Made from Waste. Built for the World.</p></div>
+      <div class="tier"><span class="tl">Short form</span><div><p class="hs">Engineered from Waste. Built for the World.</p><p class="tn">Business cards, social bios, site footer</p></div></div>
+      <div class="tier"><span class="tl">Mission line</span><p class="ml">We turn waste into tested materials, parts and equipment for industry and defence.</p></div>
+      <div class="tier"><span class="tl">Vision line</span><p class="ml">To build an African manufacturer that turns recycled materials into high-performance hardware and competes anywhere in the world.</p></div>
     </div>
 
-    <div class="reasons">
-      <div><p class="label">Africa first</p><p>The line opens with Africa, your home market and where your first customers will come from.</p></div>
-      <div><p class="label">Then the world</p><p>"Built for the world" sets the global aim without claiming global sales today.</p></div>
-      <div><p class="label">The name</p><p>Dike means strong. "Industrial strength" carries the name for Igbo speakers and the meaning for everyone else.</p></div>
+    <div class="trace">
+      <table>
+        <thead><tr><th>Beat</th><th>What it says</th><th>Where it comes from</th></tr></thead>
+        <tbody>
+          <tr><td class="beat">Engineered in Africa</td><td>Where you build first</td><td class="src">Your Africa-first decision, and the mission's "engineering, materials innovation, and manufacturing"</td></tr>
+          <tr><td class="beat">Made from waste</td><td>What you build from</td><td class="src">Mission: "convert underutilized waste resources into valuable industrial products"</td></tr>
+          <tr><td class="beat">Built for the world</td><td>Who you build for</td><td class="src">Vision: "a globally competitive industrial and defence manufacturing company"</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="lineage">
+      <p class="label">What the first lines gave us</p>
+      <ul>
+        <li><span class="q">Engineered from Waste. Built for Performance.</span><p>Kept the two-beat build and the word "engineered."</p></li>
+        <li><span class="q">Turning Recycled Materials into Industrial Capability.</span><p>Kept the idea of waste becoming capability. Cut the length.</p></li>
+        <li><span class="q">Africa's Industrial Strength. Built for the World.</span><p>Kept Africa first and "Built for the World."</p></li>
+        <li><span class="q">Strength, recovered. Built brave.</span><p>Dropped. Both need the backstory to make sense.</p></li>
+      </ul>
     </div>
 
     <div class="rule">
       <p class="label">One wording rule</p>
-      <p>Keep Africa next to strength, never next to waste. A line like "Turning Africa's waste into…" can read as if Africa is a dumping ground.</p>
+      <p>Keep Africa next to strength or engineering, never next to waste. A line like "Turning Africa's waste into…" can read as if Africa is a dumping ground. The headline passes: Africa sits with "engineered."</p>
     </div>
 
     <ul class="alts">
-      <li><span class="a">Building Africa's Industrial Strength</span><p>The staged route. Use it now, then switch to "Turning Waste into Industrial Strength" when you go global, the way Terra moved from Africa to the Global South.</p></li>
-      <li><span class="a">Turning Waste into Industrial Strength</span><p>Round 2 pick. Global from day one, with no Africa signal. Keep it for the global stage.</p></li>
-      <li><span class="a">Made in Africa. Built for the World.</span><p>Clear, but many African brands already use this phrasing, so it won't stand out.</p></li>
+      <li><span class="a">Engineered from Waste. Built for Performance.</span><p>Your vision doc's line. Strong on mission and quality, with no Africa or global signal.</p></li>
+      <li><span class="a">Africa's Industrial Strength. Built for the World.</span><p>Round 4. Africa first and global, but it says nothing about waste or engineering.</p></li>
+      <li><span class="a">Engineered in Africa. Built for the World.</span><p>Shorter. Drops waste, so the mission line has to carry it.</p></li>
     </ul>
   </div>
 </section>
@@ -497,7 +506,7 @@ code{font-family:var(--f-mono);font-size:.95em}
         <p class="label">From C</p>
         <h3>Barlow Condensed ExtraBold</h3>
         <p class="use">Logo, headlines, signage, product markings</p>
-        <p class="sp-display">Africa's industrial strength. Built for the world.</p>
+        <p class="sp-display">Engineered in Africa. Made from waste. Built for the world.</p>
       </div>
       <div>
         <p class="label">From A</p>
@@ -531,8 +540,8 @@ code{font-family:var(--f-mono);font-size:.95em}
       </div>
       <div class="site-body">
         <p class="site-eye">Industrial &amp; defence manufacturing</p>
-        <h3 class="site-h">Africa's industrial strength. Built for the world.</h3>
-        <p class="site-p">We turn recycled materials into tested hardware for industry and defence, starting in Africa.</p>
+        <h3 class="site-h">Engineered in Africa. Made from waste. Built for the world.</h3>
+        <p class="site-p">We turn waste into tested materials, parts and equipment for industry and defence.</p>
         <div class="site-btns"><a class="btn pri" href="#use">Talk to us</a><a class="btn sec" href="#use">See how we test</a></div>
       </div>
       <dl class="site-strip">
@@ -549,7 +558,7 @@ code{font-family:var(--f-mono);font-size:.95em}
           <div class="card front"><div class="lk on-ink" role="img" aria-label="Card front logo"><svg viewBox="0 0 64 64"><use href="#mk-a"/></svg><div class="lk-word"><span class="lk-name">DIKE</span><span class="lk-sub">INDUSTRIES</span></div></div></div>
           <div class="card back">
             <div><div class="cb-name">Duke</div><div class="cb-role">Founder</div><div class="cb-pr">DIKE /dee-keh/</div></div>
-            <div class="cb-foot"><span class="cb-tag">Africa's industrial strength.<br>Built for the world.</span><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#mk-a"/></svg></div>
+            <div class="cb-foot"><span class="cb-tag">Engineered from waste.<br>Built for the world.</span><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#mk-a"/></svg></div>
           </div>
         </div>
         <p class="ucap">Business card · 85 × 55 mm, front and back</p>
@@ -586,7 +595,7 @@ code{font-family:var(--f-mono);font-size:.95em}
           <li><strong>Mark</strong><span>A's shield, one version at every size</span></li>
           <li><strong>Wordmark</strong><span>Condensed, from C</span></li>
           <li><strong>Say it</strong><span>/dee-keh/</span></li>
-          <li><strong>Tagline</strong><span class="open">Africa's Industrial Strength. Built for the World. Waiting on your OK.</span></li>
+          <li><strong>Tagline</strong><span class="open">Engineered in Africa. Made from Waste. Built for the World. Waiting on your OK.</span></li>
         </ul>
       </div>
       <div>
@@ -607,5 +616,5 @@ code{font-family:var(--f-mono);font-size:.95em}
 </main>
 
 <footer class="foot">
-  <div class="wrap"><span>Mark source files: <code>brand/marks/</code> in the Dike repo</span><span>Round 4 · 17 Oct 2026</span></div>
+  <div class="wrap"><span>Mark source files: <code>brand/marks/</code> in the Dike repo</span><span>Round 5 · 17 Oct 2026</span></div>
 </footer>
