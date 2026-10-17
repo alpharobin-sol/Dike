@@ -1,0 +1,723 @@
+<title>Dike Brand Directions</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400..700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@500;600;700;800&display=swap">
+<style>
+:root{
+  /* Layout: dictionary-entry hero, plain foundation columns, then three full-bleed specimen bands (one world per direction) on a 1120px wrap */
+  --bg:#ECEDEA; --fg:#15171A; --muted:#5A5F66; --line:#CBCEC9; --panel:#E1E3DF; --accent:#8A4727;
+  --f-sans:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+  --f-archivo:"Archivo","Helvetica Neue",Arial,sans-serif;
+  --f-inst:"Instrument Sans","Helvetica Neue",Arial,sans-serif;
+  --f-barlow:"Barlow","Helvetica Neue",Arial,sans-serif;
+  --f-barlow-c:"Barlow Condensed","Arial Narrow",sans-serif;
+
+  /* Direction A: Bronze */
+  --a-ground:#ECEAE4; --a-ink:#16181D; --a-bronze:#8E5329; --a-patina:#5F7368; --a-cast:#BAB6AD;
+  --a-muted:#4A4E55; --a-line:#C9C5BC; --a-paper:#F6F5F1; --a-shadow:rgba(22,24,29,.14);
+  /* Direction B: Uli */
+  --b-ground:#141B2E; --b-nzu:#EEF0EE; --b-laterite:#DE6236; --b-draft:#7383A8; --b-deep:#0C1120;
+  --b-muted:#A7B1CC; --b-line:#2A3552; --b-grid:rgba(115,131,168,.13);
+  /* Direction C: Agu */
+  --c-ground:#1D2023; --c-ochre:#D6A23A; --c-bone:#E6E3DC; --c-ti:#8B9197; --c-red:#A8322A;
+  --c-line:#34393E; --c-plate:#272B2F; --c-screw-hi:#A3A9AF; --c-screw-lo:#4A4F55; --c-slot:#2A2E32;
+
+  --wrap:1120px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){--bg:#121416;--fg:#E4E5E1;--muted:#9A9FA6;--line:#2C3034;--panel:#1B1E21;--accent:#E0895F;color-scheme:dark}
+}
+:root[data-theme="dark"]{--bg:#121416;--fg:#E4E5E1;--muted:#9A9FA6;--line:#2C3034;--panel:#1B1E21;--accent:#E0895F;color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--f-sans);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+.wrap{max-width:var(--wrap);margin-inline:auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+@media (min-width:720px){.wrap{padding-left:max(32px,env(safe-area-inset-left,0px));padding-right:max(32px,env(safe-area-inset-right,0px))}}
+h1,h2,h3,h4{text-wrap:balance}
+p{text-wrap:pretty}
+a{color:inherit}
+a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.label{font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0}
+.sym{position:absolute;width:0;height:0;overflow:hidden}
+
+/* Hero */
+.hero{padding-block:36px 56px;border-bottom:1px solid var(--line)}
+.meta{display:flex;flex-wrap:wrap;gap:6px 24px;font-family:var(--f-mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.entry{display:grid;grid-template-columns:auto minmax(0,1fr);gap:20px 56px;align-items:end;margin-top:48px}
+.word{font-size:clamp(96px,19vw,232px);line-height:.8;font-weight:600;letter-spacing:-.05em;margin:0}
+.def{padding-bottom:6px;min-width:0}
+.pron{display:flex;gap:14px;align-items:baseline;margin:0;font-family:var(--f-mono);font-size:19px}
+.pron .lang{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);border:1px solid var(--line);padding:2px 8px}
+.def ol{margin:14px 0 0;padding-left:1.3em;font-size:19px;line-height:1.45;max-width:36ch;display:grid;gap:6px}
+.lede{font-size:clamp(18px,2.1vw,22px);line-height:1.5;max-width:54ch;margin:44px 0 0}
+.toc{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px}
+.toc a{font-family:var(--f-mono);font-size:13px;text-decoration:none;padding:6px 12px;border:1px solid var(--line)}
+.toc a:hover{background:var(--panel)}
+@media (max-width:720px){.entry{grid-template-columns:1fr;margin-top:32px}}
+
+/* Foundation */
+.found{padding-block:72px}
+.sec-title{font-size:clamp(28px,4vw,40px);font-weight:600;letter-spacing:-.02em;line-height:1.1;margin:0 0 32px}
+.cols3{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:32px}
+.cols3>div{border-top:2px solid var(--fg);padding-top:16px;min-width:0}
+.found h3{font-size:22px;font-weight:600;letter-spacing:-.01em;line-height:1.2;margin:8px 0 10px}
+.cols3 p:not(.label){margin:0}
+.name{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);gap:28px 48px;margin-top:56px;padding:28px;background:var(--panel)}
+.name>div>p:not(.label){margin:0}
+.opts{list-style:none;margin:12px 0 0;padding:0;display:grid;gap:14px}
+.opts strong{display:block;font-weight:600}
+@media (max-width:760px){.name{grid-template-columns:1fr;padding:22px}}
+.sub{margin-top:64px}
+.sub>p{max-width:62ch;margin:0 0 20px}
+.tbl{overflow-x:auto}
+table{width:100%;border-collapse:collapse;min-width:640px}
+th,td{text-align:left;vertical-align:top;padding:14px 20px 14px 0;border-bottom:1px solid var(--line)}
+th{font-family:var(--f-mono);font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+td:first-child{font-weight:600;width:22%}
+td.skip{color:var(--muted)}
+.fine{font-size:14px;color:var(--muted);margin:12px 0 0}
+.tags{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:28px 40px}
+.tags li{border-top:1px solid var(--line);padding-top:14px;min-width:0}
+.tagline{font-size:24px;font-weight:600;letter-spacing:-.015em;line-height:1.2;margin:0 0 6px;display:flex;flex-wrap:wrap;gap:8px 12px;align-items:baseline}
+.pick-tag{font-family:var(--f-mono);font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--bg);background:var(--fg);padding:2px 8px}
+.tags p{margin:0;color:var(--muted)}
+.avoid{list-style:none;margin:0 0 16px;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.avoid li{border:1px solid var(--line);padding:6px 12px;font-size:15px}
+.avoid li::before{content:"\00D7";margin-right:8px;color:var(--accent)}
+
+/* Direction bands: shared structure, per-band tokens */
+.dir{padding-block:72px 64px}
+.dir-a{--d-fg:var(--a-ink);--d-muted:var(--a-muted);--d-line:var(--a-line);--d-accent:var(--a-bronze);--d-panel:var(--a-paper);background:var(--a-ground);color:var(--a-ink);font-family:var(--f-archivo)}
+.dir-b{--d-fg:var(--b-nzu);--d-muted:var(--b-muted);--d-line:var(--b-line);--d-accent:var(--b-laterite);--d-panel:var(--b-deep);background:var(--b-ground);color:var(--b-nzu);font-family:var(--f-inst)}
+.dir-c{--d-fg:var(--c-bone);--d-muted:var(--c-ti);--d-line:var(--c-line);--d-accent:var(--c-ochre);--d-panel:var(--c-plate);background:var(--c-ground);color:var(--c-bone);font-family:var(--f-barlow)}
+.dir a:focus-visible{outline-color:var(--d-accent)}
+.dir-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.35fr);gap:20px 48px;align-items:end}
+.dir-tag{font-family:var(--f-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--d-accent);margin:0}
+.dir-name{font-size:clamp(48px,7.5vw,84px);line-height:.95;margin:8px 0 0}
+.dir-lede{font-size:18px;line-height:1.55;max-width:54ch;margin:0}
+@media (max-width:760px){.dir-head{grid-template-columns:1fr}}
+.dir-a .dir-name{font-weight:800;font-stretch:125%;letter-spacing:-.01em}
+.dir-b .dir-name{font-weight:600;letter-spacing:-.03em}
+.dir-c .dir-name{font-family:var(--f-barlow-c);font-weight:800;text-transform:uppercase;font-size:clamp(60px,9vw,104px);line-height:.85}
+
+.stage{margin-top:40px;padding-block:clamp(40px,7vw,72px);border-top:1px solid var(--d-line);border-bottom:1px solid var(--d-line);display:flex;justify-content:center}
+.lockup{display:flex;align-items:center;gap:clamp(14px,2.6vw,30px);min-width:0}
+.lk-mark{width:clamp(64px,11vw,124px);height:auto;aspect-ratio:1;flex:none;display:block}
+.lk-word{display:flex;flex-direction:column;line-height:.84;min-width:0}
+.lk-name{font-size:clamp(52px,10.5vw,124px)}
+.lk-sub{font-size:clamp(10px,1.35vw,15px);letter-spacing:.42em;margin-top:.8em;padding-left:.08em}
+.dir-a .lk-mark{color:var(--a-bronze)}
+.dir-a .lk-name{font-weight:800;font-stretch:125%;letter-spacing:.01em}
+.dir-a .lk-sub{font-weight:600;font-stretch:112%}
+.dir-b .lockup{gap:clamp(18px,3.4vw,40px)}
+.dir-b .lk-word{border-left:1px solid var(--b-draft);padding-left:clamp(18px,3.4vw,40px);padding-block:.12em}
+.dir-b .lk-mark{color:var(--b-nzu);--dot:var(--b-laterite)}
+.dir-b .lk-name{font-weight:500;letter-spacing:.2em}
+.dir-b .lk-sub{font-family:var(--f-mono);font-weight:500;letter-spacing:.48em}
+.dir-c .lk-mark{color:var(--c-ochre)}
+.dir-c .lk-name{font-family:var(--f-barlow-c);font-weight:800;font-size:clamp(68px,13vw,156px);letter-spacing:.005em}
+.dir-c .lk-sub{font-family:var(--f-barlow-c);font-weight:600;letter-spacing:.56em;color:var(--c-ochre)}
+
+.dir-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:44px 40px;margin-top:48px}
+.cell{min-width:0}
+.cell-label{font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--d-muted);margin:0 0 18px;padding-bottom:10px;border-bottom:1px solid var(--d-line)}
+.sizes{display:flex;align-items:flex-end;gap:20px;flex-wrap:wrap}
+.sizes svg{display:block}
+.tile{width:76px;height:76px;display:grid;place-items:center}
+.cell-note{font-size:15px;line-height:1.55;color:var(--d-muted);margin:18px 0 0}
+.cap{font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--d-muted);margin:10px 0 0}
+
+.swatches{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.swatches li{display:grid;grid-template-columns:44px minmax(0,1fr) auto;column-gap:12px;row-gap:1px;align-items:center}
+.chip{width:44px;height:44px;grid-row:span 2;border:1px solid var(--d-line)}
+.sw-name{font-weight:600;font-size:15px;line-height:1.2}
+.sw-hex{font-family:var(--f-mono);font-size:13px;user-select:all}
+.sw-role{grid-column:2/-1;font-size:13px;line-height:1.3;color:var(--d-muted)}
+
+.spec-aa{font-size:104px;line-height:.86;margin:0}
+.spec-meta{font-family:var(--f-mono);font-size:12px;color:var(--d-muted);margin:10px 0 18px}
+.spec-head{font-size:27px;line-height:1.1;margin:0 0 8px}
+.spec-body{font-size:15px;line-height:1.55;margin:0}
+.spec-data{margin:14px 0 0;font-size:14px;color:var(--d-muted)}
+.dir-a .spec-aa,.dir-a .spec-head{font-weight:800;font-stretch:125%}
+.dir-a .spec-data{font-stretch:75%;font-weight:500;font-size:15px;letter-spacing:.02em}
+.dir-b .spec-aa{font-weight:600;letter-spacing:-.02em}
+.dir-b .spec-head{font-weight:600;letter-spacing:-.015em}
+.dir-b .spec-data{font-family:var(--f-mono);font-size:13px}
+.dir-c .spec-aa,.dir-c .spec-head{font-family:var(--f-barlow-c);font-weight:800;text-transform:uppercase}
+.dir-c .spec-head{font-size:34px}
+.dir-c .spec-data{font-family:var(--f-mono);font-size:13px}
+
+.app{grid-column:1/-1}
+.app-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:32px;align-items:start}
+.app-grid>*{min-width:0}
+
+.mini{padding:clamp(22px,3vw,32px);background:var(--d-panel);border:1px solid var(--d-line)}
+.mini-eye{font-family:var(--f-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--d-accent);margin:0}
+.mini h4{margin:14px 0 12px;line-height:1.02}
+.mini p.copy{margin:0 0 22px;font-size:16px;line-height:1.55;max-width:40ch}
+.btn{display:inline-block;font-size:15px;font-weight:600;padding:11px 18px;text-decoration:none}
+.dir-a .mini h4{font-size:clamp(30px,3.6vw,40px);font-weight:800;font-stretch:125%}
+.dir-a .btn{background:var(--a-bronze);color:var(--a-paper)}
+.dir-b .mini h4{font-size:clamp(28px,3.2vw,36px);font-weight:600;letter-spacing:-.02em}
+.dir-b .btn{border:1px solid var(--b-laterite);color:var(--b-laterite);font-family:var(--f-mono);font-weight:500;font-size:14px}
+.dir-c .mini h4{font-family:var(--f-barlow-c);font-size:clamp(46px,5.4vw,60px);font-weight:800;text-transform:uppercase;line-height:.9}
+.dir-c .btn{background:var(--c-ochre);color:var(--c-ground);font-family:var(--f-barlow-c);font-weight:700;letter-spacing:.12em;text-transform:uppercase}
+
+/* A: business cards */
+.cards{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr))}
+.card{aspect-ratio:85/55;max-width:100%;padding:16px 18px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 1px 2px var(--a-shadow),0 10px 28px var(--a-shadow)}
+.card-front{background:var(--a-paper);color:var(--a-ink)}
+.card-back{background:var(--a-ink);color:var(--a-ground)}
+.card-lock{display:flex;align-items:center;gap:10px}
+.card-lock svg{width:34px;height:34px;color:var(--a-bronze);flex:none}
+.cl-name{display:block;font-weight:800;font-stretch:125%;font-size:24px;line-height:.9}
+.cl-sub{display:block;font-weight:600;font-size:7.5px;letter-spacing:.42em;margin-top:5px}
+.card-line{font-stretch:75%;font-weight:500;font-size:12px;letter-spacing:.03em;color:var(--a-muted)}
+.cb-name{font-weight:700;font-size:17px;line-height:1.1}
+.cb-role{font-size:12px;color:var(--a-cast)}
+.cb-foot{display:flex;justify-content:space-between;align-items:flex-end;gap:8px}
+.cb-tag{font-weight:600;font-stretch:115%;font-size:12px}
+.cb-foot svg{width:22px;height:22px;color:var(--a-bronze);flex:none}
+
+/* B: drawing sheet */
+.sheet{background-color:var(--b-deep);background-image:linear-gradient(var(--b-grid) 1px,transparent 1px),linear-gradient(90deg,var(--b-grid) 1px,transparent 1px);background-size:20px 20px;border:1px solid var(--b-line);padding:14px}
+.sheet svg{width:100%;height:auto;display:block}
+.dw-line{stroke:var(--b-nzu);fill:none;stroke-width:1.3}
+.dw-hid{stroke:var(--b-draft);stroke-dasharray:6 4}
+.dw-ctr{stroke:var(--b-laterite);stroke-width:.8;stroke-dasharray:14 3 3 3;fill:none}
+.dw-dim{stroke:var(--b-laterite);stroke-width:.8;fill:none}
+.dw-arrow{fill:var(--b-laterite)}
+.dw-txt{fill:var(--b-muted);font-family:var(--f-mono);font-size:10.5px;letter-spacing:.06em}
+.dw-dimtxt{fill:var(--b-laterite);font-family:var(--f-mono);font-size:11px}
+.tb{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--b-draft);border:1px solid var(--b-draft);margin-top:12px}
+.tb>div{background:var(--b-deep);padding:6px 8px;min-width:0}
+.tb .k{display:block;font-family:var(--f-mono);font-size:9.5px;letter-spacing:.08em;color:var(--b-muted)}
+.tb .v{display:block;font-family:var(--f-mono);font-size:12px;line-height:1.35;overflow-wrap:anywhere}
+.tb .span2{grid-column:span 2}
+.tb .tb-brand{display:flex;align-items:center;gap:8px;font-weight:600;letter-spacing:.16em;font-size:12px}
+.tb .tb-brand svg{width:22px;height:22px;flex:none;color:var(--b-nzu);--dot:var(--b-laterite)}
+.tb .ex{color:var(--b-laterite)}
+
+/* C: data plate */
+.plate{position:relative;background:var(--c-plate);border:1px solid var(--c-line);padding:24px 28px}
+.screw{position:absolute;width:10px;height:10px;border-radius:50%;background:radial-gradient(circle at 35% 35%,var(--c-screw-hi),var(--c-screw-lo))}
+.screw::after{content:"";position:absolute;left:2px;right:2px;top:4.5px;height:1px;background:var(--c-slot);transform:rotate(35deg)}
+.screw.tl{top:8px;left:8px}.screw.tr{top:8px;right:8px}.screw.bl{bottom:8px;left:8px}.screw.br{bottom:8px;right:8px}
+.plate-head{display:flex;align-items:center;gap:10px;background:var(--c-ochre);color:var(--c-ground);padding:8px 12px;font-family:var(--f-barlow-c);font-weight:700;letter-spacing:.2em;font-size:15px}
+.plate-head svg{width:20px;height:20px;flex:none}
+.plate-tag{margin-left:auto;font-family:var(--f-mono);font-size:10px;font-weight:500;letter-spacing:.1em;border:1px solid currentColor;padding:1px 6px}
+.plate-body{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:20px;margin-top:16px;align-items:end}
+.plate-rows{margin:0;display:grid;gap:7px}
+.plate-rows div{display:grid;grid-template-columns:84px minmax(0,1fr);gap:12px;border-bottom:1px dashed var(--c-line);padding-bottom:7px}
+.plate-rows dt{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;color:var(--c-ti)}
+.plate-rows dd{margin:0;font-family:var(--f-mono);font-size:13px;color:var(--c-bone);overflow-wrap:anywhere}
+.plate-big{font-family:var(--f-barlow-c);font-weight:800;font-size:68px;line-height:.82;color:var(--c-ochre);text-align:right}
+@media (max-width:480px){.plate{padding:22px 20px}.plate-body{grid-template-columns:1fr}.plate-big{text-align:left;font-size:54px}}
+
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:24px 40px;margin:52px 0 0;padding-top:24px;border-top:1px solid var(--d-line)}
+.facts div{min-width:0}
+.facts dt{font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--d-accent)}
+.facts dd{margin:6px 0 0;font-size:17px;line-height:1.45}
+
+/* Compare + next */
+.compare{padding-block:80px 64px}
+.dot{display:inline-block;width:10px;height:10px;margin-right:10px;vertical-align:1px}
+.verdict{margin-top:36px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.6fr);gap:20px 48px;padding:28px;border:2px solid var(--fg)}
+.verdict h3{font-size:clamp(26px,3.4vw,34px);font-weight:600;letter-spacing:-.02em;line-height:1.1;margin:8px 0 0}
+.verdict ul{margin:0;padding-left:1.2em;display:grid;gap:10px}
+@media (max-width:760px){.verdict{grid-template-columns:1fr;padding:22px}}
+.next{padding-block:8px 88px}
+.next-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,290px),1fr));gap:32px}
+.next-grid>div{border-top:2px solid var(--fg);padding-top:16px;min-width:0}
+.next h3{font-size:21px;font-weight:600;margin:8px 0 10px}
+.next p:not(.label){margin:0}
+.next ul{margin:0;padding-left:1.2em;display:grid;gap:6px}
+.foot{border-top:1px solid var(--line);padding-block:24px 32px;font-family:var(--f-mono);font-size:12px;color:var(--muted)}
+.foot .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px}
+code{font-family:var(--f-mono);font-size:.95em}
+</style>
+
+<svg class="sym" aria-hidden="true" focusable="false">
+  <defs>
+    <mask id="mk-a-cut" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64">
+      <rect width="64" height="64" fill="#fff"/>
+      <path d="M17.5 17.5H46.5V32A14.5 14.5 0 0 1 17.5 32Z M25 25H39V32A7 7 0 0 1 25 32Z" fill="none" stroke="#000" stroke-width="3.2"/>
+    </mask>
+    <clipPath id="mk-c-clip"><path d="M11 10H31A22 22 0 0 1 31 54H11Z"/></clipPath>
+    <symbol id="mk-a" viewBox="0 0 64 64">
+      <path d="M10 10H54V32A22 22 0 0 1 10 32Z" fill="currentColor" mask="url(#mk-a-cut)"/>
+    </symbol>
+    <symbol id="mk-b" viewBox="0 0 64 64">
+      <path d="M18 56V10H32A20 20 0 0 1 32 50H10" fill="none" stroke="currentColor" stroke-width="5"/>
+      <rect x="15.5" y="47.5" width="5" height="5" style="fill:var(--dot,currentColor)"/>
+    </symbol>
+    <symbol id="mk-c" viewBox="0 0 64 64">
+      <g clip-path="url(#mk-c-clip)" fill="currentColor">
+        <rect y="10" width="64" height="8"/><rect y="22" width="64" height="8"/><rect y="34" width="64" height="8"/><rect y="46" width="64" height="8"/>
+      </g>
+    </symbol>
+  </defs>
+</svg>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="meta"><span>Dike Industries</span><span>Brand directions, round 1</span><span>17 October 2026</span></div>
+    <div class="entry">
+      <h1 class="word">Dike</h1>
+      <div class="def">
+        <p class="pron"><span>/dee-keh/</span><span class="lang">Igbo</span></p>
+        <ol>
+          <li>A brave person. A warrior, a hero.</li>
+          <li>A strong one. You hear it in names like Chidike, "God is strong."</li>
+        </ol>
+      </div>
+    </div>
+    <p class="lede">Three ways to brand an industrial and defence manufacturer that builds with recovered material. Pick one, or mix parts from each. Your pick becomes the full brand system.</p>
+    <nav class="toc" aria-label="Sections">
+      <a href="#foundation">Foundation</a>
+      <a href="#bronze">A · Bronze</a>
+      <a href="#uli">B · Uli</a>
+      <a href="#agu">C · Agu</a>
+      <a href="#compare">Compare</a>
+      <a href="#next">Next steps</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="found" id="foundation">
+  <div class="wrap">
+    <h2 class="sec-title">What all three share</h2>
+    <div class="cols3">
+      <div>
+        <p class="label">Brand idea</p>
+        <h3>Igwebuike</h3>
+        <p>Igbo for "there is strength in numbers." Many recovered pieces fuse into one strong material. Many suppliers, labs and partners make one dependable chain. The name says brave. The idea says how you get strong.</p>
+      </div>
+      <div>
+        <p class="label">Positioning</p>
+        <h3>A manufacturer first</h3>
+        <p>Dike Industries makes industrial and defence hardware. Recovered material is how we build it. Testing decides where it goes. This follows your core principle: Dike makes products, and recycled material feeds that work.</p>
+      </div>
+      <div>
+        <p class="label">Order of claims</p>
+        <h3>Strength first, source second</h3>
+        <p>Lead with what the part does. Then say it's recycled, with the percentage. Buyers pay for performance. Recycled content can win the tie.</p>
+      </div>
+    </div>
+
+    <div class="name">
+      <div>
+        <p class="label">The name in English</p>
+        <h3>Teach the sound early</h3>
+        <p>Many English readers will say Dike as "dyke." That's an English word for a flood wall, and it sounds like a slur. You'll hear it on sales calls and in investor meetings, so plan for it now.</p>
+      </div>
+      <div>
+        <p class="label">Three fixes, lightest to strongest</p>
+        <ul class="opts">
+          <li><strong>Teach it</strong>Print /dee-keh/ under the name on your site, deck cover and email signature. Say it first in every intro.</li>
+          <li><strong>Use the full name</strong>Write "Dike Industries" at every first mention. Two words read as a company name.</li>
+          <li><strong>Add an accent</strong>DIKÉ tells English readers to sound the last letter. It breaks Igbo spelling, so weigh that first.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="sub">
+      <h3>How Dike talks</h3>
+      <p>Engineers and procurement teams will read everything you write. Your vision doc already sets the rule: technical honesty. The voice follows it.</p>
+      <div class="tbl">
+        <table>
+          <thead><tr><th>Principle</th><th>Write</th><th>Skip</th></tr></thead>
+          <tbody>
+            <tr><td>Proof before claims</td><td>Passed ISO 180 impact testing at 23 °C.</td><td class="skip">Ultra-tough, military-grade build.</td></tr>
+            <tr><td>Strong, never loud</td><td>Holds its shape after a 1.5 m drop.</td><td class="skip">Unleash battlefield dominance.</td></tr>
+            <tr><td>Recycled, said plainly</td><td>60% recovered HDPE, tested per batch.</td><td class="skip">Eco-friendly green solutions.</td></tr>
+            <tr><td>Plain words</td><td>Lead time: six weeks from approved sample.</td><td class="skip">Next-gen solutions for tomorrow.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="fine">These lines show the style. Swap in real test results once you have them.</p>
+    </div>
+
+    <div class="sub">
+      <h3>Taglines</h3>
+      <ul class="tags">
+        <li><p class="tagline">Strength, recovered. <span class="pick-tag">My pick</span></p><p>Short. Holds both halves of the company: what it makes and how.</p></li>
+        <li><p class="tagline">Built brave.</p><p>Plays on the meaning of Dike. Bold, best for campaigns and launch moments.</p></li>
+        <li><p class="tagline">Engineered from Waste. Built for Performance.</p><p>From your vision doc. Leads with waste, which your own rule puts second.</p></li>
+        <li><p class="tagline">Turning Recycled Materials into Industrial Capability.</p><p>From your vision doc. Too long for a tagline. Use it as the descriptor in decks and on the About page.</p></li>
+      </ul>
+    </div>
+
+    <div class="sub">
+      <h3>Keep out of the brand</h3>
+      <ul class="avoid">
+        <li>Recycling arrows</li>
+        <li>Leaves and globes</li>
+        <li>Bright eco green</li>
+        <li>Camouflage</li>
+        <li>Weapon silhouettes</li>
+        <li>Stock photos of soldiers</li>
+        <li>Generic "African print" clip art</li>
+      </ul>
+      <p class="fine">Each one makes Dike look like a recycler, promises defence work you haven't done yet, or turns Igbo culture into decoration.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Direction A -->
+<section class="dir dir-a" id="bronze">
+  <div class="wrap">
+    <div class="dir-head">
+      <div>
+        <p class="dir-tag">Direction A · Heritage</p>
+        <h2 class="dir-name">Bronze</h2>
+      </div>
+      <p class="dir-lede">Smiths at Igbo-Ukwu cast detailed bronze over 1,000 years ago. This direction places Dike in that line of Igbo makers, with new material in the furnace.</p>
+    </div>
+
+    <div class="stage">
+      <div class="lockup" role="img" aria-label="Dike Industries logo, Bronze direction">
+        <svg class="lk-mark" viewBox="0 0 64 64"><use href="#mk-a"/></svg>
+        <div class="lk-word"><span class="lk-name">DIKE</span><span class="lk-sub">INDUSTRIES</span></div>
+      </div>
+    </div>
+
+    <div class="dir-grid">
+      <div class="cell">
+        <p class="cell-label">Mark</p>
+        <div class="sizes">
+          <svg width="48" height="48" viewBox="0 0 64 64" style="color:var(--a-ink)" aria-hidden="true"><use href="#mk-a"/></svg>
+          <svg width="24" height="24" viewBox="0 0 64 64" style="color:var(--a-ink)" aria-hidden="true"><use href="#mk-a"/></svg>
+          <svg width="16" height="16" viewBox="0 0 64 64" style="color:var(--a-ink)" aria-hidden="true"><use href="#mk-a"/></svg>
+          <span class="tile" style="background:var(--a-ink)"><svg width="48" height="48" viewBox="0 0 64 64" style="color:var(--a-bronze)" aria-hidden="true"><use href="#mk-a"/></svg></span>
+        </div>
+        <p class="cell-note">The D turns on its side to become a shield. The inner lines echo the cast ridges on Igbo-Ukwu bronze and the layers inside every part.</p>
+      </div>
+      <div class="cell">
+        <p class="cell-label">Color</p>
+        <ul class="swatches">
+          <li><span class="chip" style="background:var(--a-ground)"></span><span class="sw-name">Nzu Chalk</span><span class="sw-hex">#ECEAE4</span><span class="sw-role">Ground · named for nzu, Igbo white clay</span></li>
+          <li><span class="chip" style="background:var(--a-ink)"></span><span class="sw-name">Uli Ink</span><span class="sw-hex">#16181D</span><span class="sw-role">Text · named for uli, the plant dye of Igbo line art</span></li>
+          <li><span class="chip" style="background:var(--a-bronze)"></span><span class="sw-name">Igbo-Ukwu Bronze</span><span class="sw-hex">#8E5329</span><span class="sw-role">Mark and accent</span></li>
+          <li><span class="chip" style="background:var(--a-patina)"></span><span class="sw-name">Patina</span><span class="sw-hex">#5F7368</span><span class="sw-role">Secondary · weathered bronze</span></li>
+          <li><span class="chip" style="background:var(--a-cast)"></span><span class="sw-name">Cast Grey</span><span class="sw-hex">#BAB6AD</span><span class="sw-role">Lines and borders</span></li>
+        </ul>
+      </div>
+      <div class="cell">
+        <p class="cell-label">Type</p>
+        <p class="spec-aa">Aa</p>
+        <p class="spec-meta">Archivo · one family, three widths</p>
+        <p class="spec-head">Strength, recovered.</p>
+        <p class="spec-body">Expanded for headlines, regular for text, narrow for spec tables. One family keeps the system simple to run.</p>
+        <p class="spec-data">DK-H01 · rHDPE 60% · LOT 26-0142</p>
+      </div>
+
+      <div class="cell app">
+        <p class="cell-label">In use · business card and web</p>
+        <div class="app-grid">
+          <div>
+            <div class="cards">
+              <div class="card card-front">
+                <div class="card-lock">
+                  <svg viewBox="0 0 64 64" aria-hidden="true"><use href="#mk-a"/></svg>
+                  <div><span class="cl-name">DIKE</span><span class="cl-sub">INDUSTRIES</span></div>
+                </div>
+                <span class="card-line">Industrial &amp; defence manufacturing</span>
+              </div>
+              <div class="card card-back">
+                <div><div class="cb-name">Duke</div><div class="cb-role">Founder</div></div>
+                <div class="cb-foot"><span class="cb-tag">Strength, recovered.</span><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#mk-a"/></svg></div>
+              </div>
+            </div>
+            <p class="cap">85 × 55 mm card, front and back</p>
+          </div>
+          <div class="mini">
+            <p class="mini-eye">Dike Industries</p>
+            <h4>Strength, recovered.</h4>
+            <p class="copy">We're building industrial hardware from recovered material. We test every batch before it ships.</p>
+            <a class="btn" href="#bronze">See how we test</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <dl class="facts">
+      <div><dt>Says</dt><dd>We come from a long line of makers.</dd></div>
+      <div><dt>Best for</dt><dd>Investors, partners and press. Brand story and culture pieces.</dd></div>
+      <div><dt>Watch</dt><dd>Pushed too far, it reads as craft or luxury instead of manufacturing.</dd></div>
+    </dl>
+  </div>
+</section>
+
+<!-- Direction B -->
+<section class="dir dir-b" id="uli">
+  <div class="wrap">
+    <div class="dir-head">
+      <div>
+        <p class="dir-tag">Direction B · Engineering</p>
+        <h2 class="dir-name">Uli</h2>
+      </div>
+      <p class="dir-lede">Uli artists draw with few, exact lines and leave open space around them. Engineers draw the same way. This direction turns Uli line work into the language of technical drawing.</p>
+    </div>
+
+    <div class="stage">
+      <div class="lockup" role="img" aria-label="Dike Industries logo, Uli direction">
+        <svg class="lk-mark" viewBox="0 0 64 64"><use href="#mk-b"/></svg>
+        <div class="lk-word"><span class="lk-name">DIKE</span><span class="lk-sub">INDUSTRIES</span></div>
+      </div>
+    </div>
+
+    <div class="dir-grid">
+      <div class="cell">
+        <p class="cell-label">Mark</p>
+        <div class="sizes">
+          <svg width="48" height="48" viewBox="0 0 64 64" style="color:var(--b-nzu);--dot:var(--b-laterite)" aria-hidden="true"><use href="#mk-b"/></svg>
+          <svg width="24" height="24" viewBox="0 0 64 64" style="color:var(--b-nzu);--dot:var(--b-laterite)" aria-hidden="true"><use href="#mk-b"/></svg>
+          <svg width="16" height="16" viewBox="0 0 64 64" style="color:var(--b-nzu)" aria-hidden="true"><use href="#mk-b"/></svg>
+          <span class="tile" style="background:var(--b-nzu)"><svg width="48" height="48" viewBox="0 0 64 64" style="color:var(--b-ground);--dot:var(--b-laterite)" aria-hidden="true"><use href="#mk-b"/></svg></span>
+        </div>
+        <p class="cell-note">One line draws the D. Its start and end cross at the corner, the way drafters run construction lines past a corner. The red square marks where the loop closes: material goes round and comes back as something new.</p>
+      </div>
+      <div class="cell">
+        <p class="cell-label">Color</p>
+        <ul class="swatches">
+          <li><span class="chip" style="background:var(--b-ground)"></span><span class="sw-name">Uli Indigo</span><span class="sw-hex">#141B2E</span><span class="sw-role">Ground · the deep blue-black of uli dye</span></li>
+          <li><span class="chip" style="background:var(--b-nzu)"></span><span class="sw-name">Nzu White</span><span class="sw-hex">#EEF0EE</span><span class="sw-role">Lines and text · named for nzu clay</span></li>
+          <li><span class="chip" style="background:var(--b-laterite)"></span><span class="sw-name">Laterite</span><span class="sw-hex">#DE6236</span><span class="sw-role">Signal · the red earth of Igboland</span></li>
+          <li><span class="chip" style="background:var(--b-draft)"></span><span class="sw-name">Draft Blue</span><span class="sw-hex">#7383A8</span><span class="sw-role">Grid and secondary lines</span></li>
+          <li><span class="chip" style="background:var(--b-deep)"></span><span class="sw-name">Deep Ink</span><span class="sw-hex">#0C1120</span><span class="sw-role">Panels and drawing sheets</span></li>
+        </ul>
+      </div>
+      <div class="cell">
+        <p class="cell-label">Type</p>
+        <p class="spec-aa">Aa</p>
+        <p class="spec-meta">Instrument Sans + IBM Plex Mono</p>
+        <p class="spec-head">Every part tested.</p>
+        <p class="spec-body">Instrument Sans for words, Plex Mono for numbers. Specs, part codes and test data always sit in mono.</p>
+        <p class="spec-data">DWG DK-H01-002 · REV A · TOL ±0.2</p>
+      </div>
+
+      <div class="cell app">
+        <p class="cell-label">In use · drawing sheet and web</p>
+        <div class="app-grid">
+          <div>
+            <div class="sheet">
+              <svg viewBox="0 0 600 230" role="img" aria-label="Example technical drawing of an equipment housing lid">
+                <rect class="dw-line" x="40" y="24" width="240" height="80" rx="6"/>
+                <rect class="dw-line dw-hid" x="52" y="36" width="216" height="56" rx="3"/>
+                <line class="dw-ctr" x1="28" y1="64" x2="292" y2="64"/>
+                <line class="dw-ctr" x1="160" y1="14" x2="160" y2="114"/>
+                <path class="dw-line" d="M40 140H280V158H272V170H48V158H40Z"/>
+                <line class="dw-ctr" x1="160" y1="132" x2="160" y2="178"/>
+                <path class="dw-line" d="M320 140H400V158H392V170H328V158H320Z"/>
+                <line class="dw-ctr" x1="360" y1="132" x2="360" y2="178"/>
+                <path class="dw-dim" d="M40 174V200M280 174V200M40 194H280"/>
+                <path class="dw-arrow" d="M40 194L48 191V197Z M280 194L272 191V197Z"/>
+                <text class="dw-dimtxt" x="160" y="189" text-anchor="middle">480</text>
+                <path class="dw-dim" d="M284 24H306M284 104H306M300 24V104"/>
+                <path class="dw-arrow" d="M300 24L297 32H303Z M300 104L297 96H303Z"/>
+                <text class="dw-dimtxt" x="308" y="68">160</text>
+                <path class="dw-dim" d="M404 140H426M404 170H426M420 140V170"/>
+                <path class="dw-arrow" d="M420 140L417 147H423Z M420 170L417 163H423Z"/>
+                <text class="dw-dimtxt" x="428" y="159">60</text>
+                <text class="dw-txt" x="40" y="124">TOP</text>
+                <text class="dw-txt" x="40" y="218">FRONT</text>
+                <text class="dw-txt" x="320" y="218">RIGHT</text>
+                <text class="dw-txt" x="460" y="36">NOTES</text>
+                <text class="dw-txt" x="460" y="56">1. WALL 3.0 MIN</text>
+                <text class="dw-txt" x="460" y="72">2. DRAFT 1.5°</text>
+                <text class="dw-txt" x="460" y="88">3. EDGES R0.5</text>
+              </svg>
+              <div class="tb">
+                <div class="span2 tb-brand"><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#mk-b"/></svg>DIKE INDUSTRIES</div>
+                <div class="span2"><span class="k">TITLE</span><span class="v">Equipment housing, lid</span></div>
+                <div><span class="k">DWG NO</span><span class="v">DK-H01-002</span></div>
+                <div><span class="k">REV</span><span class="v">A</span></div>
+                <div><span class="k">SCALE</span><span class="v">1:2</span></div>
+                <div><span class="k">SHEET</span><span class="v">1 OF 3</span></div>
+                <div class="span2"><span class="k">MATERIAL</span><span class="v">rHDPE · 60% recovered</span></div>
+                <div><span class="k">UNITS</span><span class="v">mm</span></div>
+                <div><span class="k">TOL</span><span class="v">±0.2</span></div>
+                <div><span class="k">DRAWN</span><span class="v">DK</span></div>
+                <div><span class="k">CHECKED</span><span class="v">—</span></div>
+                <div><span class="k">DATE</span><span class="v">2026-10-17</span></div>
+                <div><span class="k">STATUS</span><span class="v ex">EXAMPLE</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="mini">
+            <p class="mini-eye">Dike Industries</p>
+            <h4>Every part tested. Every claim backed.</h4>
+            <p class="copy">We build industrial hardware from recovered material, and we publish the test data behind it.</p>
+            <a class="btn" href="#uli">Read the test data</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <dl class="facts">
+      <div><dt>Says</dt><dd>We measure everything.</dd></div>
+      <div><dt>Best for</dt><dd>Industrial buyers, engineers and procurement teams. Phases 1 to 3.</dd></div>
+      <div><dt>Watch</dt><dd>Quiet by design. It needs strong product photos and real data to stand out.</dd></div>
+    </dl>
+  </div>
+</section>
+
+<!-- Direction C -->
+<section class="dir dir-c" id="agu">
+  <div class="wrap">
+    <div class="dir-head">
+      <div>
+        <p class="dir-tag">Direction C · Defence</p>
+        <h2 class="dir-name">Agu</h2>
+      </div>
+      <p class="dir-lede">Agu means leopard. Its head repeats across Isiagu, the top worn by Igbo titled men, as a sign of courage. This is the loudest direction: heavy type, hard edges and a signal color you can read across a factory floor.</p>
+    </div>
+
+    <div class="stage">
+      <div class="lockup" role="img" aria-label="Dike Industries logo, Agu direction">
+        <svg class="lk-mark" viewBox="0 0 64 64"><use href="#mk-c"/></svg>
+        <div class="lk-word"><span class="lk-name">DIKE</span><span class="lk-sub">INDUSTRIES</span></div>
+      </div>
+    </div>
+
+    <div class="dir-grid">
+      <div class="cell">
+        <p class="cell-label">Mark</p>
+        <div class="sizes">
+          <svg width="48" height="48" viewBox="0 0 64 64" style="color:var(--c-bone)" aria-hidden="true"><use href="#mk-c"/></svg>
+          <svg width="24" height="24" viewBox="0 0 64 64" style="color:var(--c-bone)" aria-hidden="true"><use href="#mk-c"/></svg>
+          <svg width="16" height="16" viewBox="0 0 64 64" style="color:var(--c-bone)" aria-hidden="true"><use href="#mk-c"/></svg>
+          <span class="tile" style="background:var(--c-ochre)"><svg width="48" height="48" viewBox="0 0 64 64" style="color:var(--c-ground)" aria-hidden="true"><use href="#mk-c"/></svg></span>
+        </div>
+        <p class="cell-note">Four bars stack into a solid D. Separate pieces, one form: Igwebuike in a single shape. With no enclosed counter, it cuts as a spray stencil for crates and equipment.</p>
+      </div>
+      <div class="cell">
+        <p class="cell-label">Color</p>
+        <ul class="swatches">
+          <li><span class="chip" style="background:var(--c-ground)"></span><span class="sw-name">Gunmetal</span><span class="sw-hex">#1D2023</span><span class="sw-role">Ground</span></li>
+          <li><span class="chip" style="background:var(--c-ochre)"></span><span class="sw-name">Agu Ochre</span><span class="sw-hex">#D6A23A</span><span class="sw-role">Signal · the leopard gold of Isiagu</span></li>
+          <li><span class="chip" style="background:var(--c-bone)"></span><span class="sw-name">Bone</span><span class="sw-hex">#E6E3DC</span><span class="sw-role">Text</span></li>
+          <li><span class="chip" style="background:var(--c-ti)"></span><span class="sw-name">Titanium</span><span class="sw-hex">#8B9197</span><span class="sw-role">Secondary text and lines</span></li>
+          <li><span class="chip" style="background:var(--c-red)"></span><span class="sw-name">Red Cap</span><span class="sw-hex">#A8322A</span><span class="sw-role">Alerts only · the red cap of titled men</span></li>
+        </ul>
+      </div>
+      <div class="cell">
+        <p class="cell-label">Type</p>
+        <p class="spec-aa">Aa</p>
+        <p class="spec-meta">Barlow Condensed + Barlow + IBM Plex Mono</p>
+        <p class="spec-head">Built brave.</p>
+        <p class="spec-body">Barlow draws on road signs and licence plates, so it reads at a distance. Condensed caps for headlines and markings, regular Barlow for text.</p>
+        <p class="spec-data">MODEL DK-C04 · LOT 26-0142</p>
+      </div>
+
+      <div class="cell app">
+        <p class="cell-label">In use · equipment data plate and web</p>
+        <div class="app-grid">
+          <div class="plate">
+            <span class="screw tl"></span><span class="screw tr"></span><span class="screw bl"></span><span class="screw br"></span>
+            <div class="plate-head"><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#mk-c"/></svg>DIKE INDUSTRIES<span class="plate-tag">EXAMPLE</span></div>
+            <div class="plate-body">
+              <dl class="plate-rows">
+                <div><dt>MODEL</dt><dd>DK-C04</dd></div>
+                <div><dt>ITEM</dt><dd>Protective case</dd></div>
+                <div><dt>SIZE</dt><dd>600 × 400 × 220 mm</dd></div>
+                <div><dt>MATERIAL</dt><dd>rPP · 55% recovered</dd></div>
+                <div><dt>LOT</dt><dd>26-0142</dd></div>
+                <div><dt>QC</dt><dd>Drop 1.5 m · Pass</dd></div>
+              </dl>
+              <div class="plate-big">DK<br>C04</div>
+            </div>
+          </div>
+          <div class="mini">
+            <p class="mini-eye">Dike Industries</p>
+            <h4>Built brave.</h4>
+            <p class="copy">Hardware for industry and security, made from recovered material and proven on the test bench.</p>
+            <a class="btn" href="#agu">View products</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <dl class="facts">
+      <div><dt>Says</dt><dd>We are strong and we protect.</dd></div>
+      <div><dt>Best for</dt><dd>Defence and security buyers. A future defence line in Phase 4.</dd></div>
+      <div><dt>Watch</dt><dd>Your roadmap puts defence in Phase 4. Leading with it now signals products you don't make yet.</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="compare" id="compare">
+  <div class="wrap">
+    <h2 class="sec-title">Side by side</h2>
+    <div class="tbl">
+      <table>
+        <thead><tr><th>Direction</th><th>Leads with</th><th>First audience</th><th>Roadmap fit</th><th>Main risk</th></tr></thead>
+        <tbody>
+          <tr><td><span class="dot" style="background:var(--a-bronze)"></span>A · Bronze</td><td>Heritage and craft</td><td>Investors, partners, press</td><td>Brand story at every phase</td><td>Reads as craft or luxury</td></tr>
+          <tr><td><span class="dot" style="background:var(--b-laterite)"></span>B · Uli</td><td>Precision and proof</td><td>Engineers, procurement</td><td>Phases 1 to 3</td><td>Quiet without strong photos</td></tr>
+          <tr><td><span class="dot" style="background:var(--c-ochre)"></span>C · Agu</td><td>Strength and defence</td><td>Defence and security buyers</td><td>Phase 4</td><td>Promises defence work too early</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="verdict">
+      <div>
+        <p class="label">Recommendation</p>
+        <h3>Go with B, Uli</h3>
+      </div>
+      <ul>
+        <li>Your first customers are industrial buyers in Phase 1. B looks like the drawings and spec sheets they already work with.</li>
+        <li>It matches your rule of technical honesty. The look itself says tested.</li>
+        <li>It grows with you. When the defence line arrives, C's heavy type and ochre can become that line's sub-brand.</li>
+        <li>Want more warmth? Add A's bronze as a second accent.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="next" id="next">
+  <div class="wrap">
+    <h2 class="sec-title">What happens next</h2>
+    <div class="next-grid">
+      <div>
+        <p class="label">Your move</p>
+        <h3>Pick a direction</h3>
+        <p>Reply with A, B or C. Or mix: a mark from one, colors from another, type from a third.</p>
+      </div>
+      <div>
+        <p class="label">Then I build</p>
+        <h3>The full system</h3>
+        <ul>
+          <li>Final logo set in SVG and PNG: light, dark and one-color</li>
+          <li>Favicon and app icon</li>
+          <li>Color and type tokens for your developers</li>
+          <li>A design system page your team can share</li>
+          <li>Business card, letterhead, deck template, email signature</li>
+          <li>Website hero concept</li>
+        </ul>
+      </div>
+      <div>
+        <p class="label">Questions for you</p>
+        <h3>Three decisions</h3>
+        <ul>
+          <li>Which name fix: teach it, full name, or accent?</li>
+          <li>Igbo-forward, or global with Igbo roots?</li>
+          <li>Will the defence line carry the Dike name, or get its own later?</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap"><span>Mark source files: <code>brand/marks/</code> in the Dike repo</span><span>Round 1 · 17 Oct 2026</span></div>
+</footer>

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <title>Dike mark, Agu direction</title>
+  <defs>
+    <clipPath id="d"><path d="M11 10H31A22 22 0 0 1 31 54H11Z"/></clipPath>
+  </defs>
+  <g clip-path="url(#d)" fill="#1D2023">
+    <rect y="10" width="64" height="8"/>
+    <rect y="22" width="64" height="8"/>
+    <rect y="34" width="64" height="8"/>
+    <rect y="46" width="64" height="8"/>
+  </g>
+</svg>

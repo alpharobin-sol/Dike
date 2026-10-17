@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <title>Dike mark, Uli direction</title>
+  <path d="M18 56V10H32A20 20 0 0 1 32 50H10" fill="none" stroke="#141B2E" stroke-width="5"/>
+  <rect x="15.5" y="47.5" width="5" height="5" fill="#DE6236"/>
+</svg>
